@@ -32,7 +32,7 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/plataforma-ird/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
@@ -41,9 +41,9 @@
             // AOS init
             AOS.init({
                 duration: 800,
-                easing: 'ease-out-cubic',
                 once: true,
-                offset: 80,
+                offset: 50,
+                easing: 'ease-out-cubic',
                 disableMutationObserver: true
             });
 
@@ -119,10 +119,10 @@
 
             <nav class="header__nav">
                 <a href="#cronograma" class="header__link">Cronograma</a>
-                <a href="#metodo" class="header__link">Metodo</a>
-                <a href="#bonus" class="header__link">Bonus</a>
+                <a href="#metodo" class="header__link">Método</a>
+                <a href="#bonus" class="header__link">Bônus</a>
                 <a href="#faq" class="header__link">FAQ</a>
-                <a href="https://pay.hotmart.com/Q100171412O" class="header__cta">Comecar agora</a>
+                <a href="https://pay.hotmart.com/Q100171412O" class="header__cta">Começar agora</a>
             </nav>
 
             <button class="header__toggle" aria-label="Menu">
@@ -136,27 +136,27 @@
     <main>
 
         <!-- ==================== HERO ==================== -->
-        <section class="hero">
+        <section class="hero" style="min-height: 80vh;">
             <div class="hero__grain"></div>
 
             <div class="container">
 
                 <!-- Lado esquerdo: Copy principal -->
                 <div class="hero__content">
-                    <div class="hero__tag">ENAM 2026.1</div>
+                    <div class="hero__tag">Magistratura + ENAM</div>
 
                     <h1 class="hero__headline">
-                        Sua aprovacao no ENAM comeca com <em>um plano</em>
+                        Passe na Magistratura e no ENAM com um <em>plano estruturado</em> até a sua aprovação
                     </h1>
 
                     <p class="hero__sub">
-                        Cronograma estruturado do primeiro dia ate a prova. Baseado no edital, focado no que realmente
-                        cai, e feito para quem quer estudar com clareza -- nao no escuro.
+                        Cronograma pronto + PDFs objetivos + Revisão estruturada + Diagnóstico por disciplina — acesso
+                        contínuo até a aprovação.
                     </p>
 
                     <div class="hero__cta-group">
                         <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
-                            Quero meu cronograma ENAM 2026.1
+                            Clique aqui e organize sua aprovação hoje
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -169,7 +169,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            Acesso imediato apos a inscricao
+                            Saia do ciclo eterno de cursinhos e entre em um plano estratégico.
                         </span>
                     </div>
                 </div>
@@ -203,659 +203,487 @@
             </div>
         </section>
 
-        <!-- ==================== CRONOGRAMA ==================== -->
-        <section id="cronograma" class="cronograma">
+        <!-- ==================== O PROBLEMA ==================== -->
+        <section id="problema" class="cronograma">
             <div class="container">
 
                 <div class="cronograma__header" data-aos="fade-up">
-                    <div class="section-tag">Cronograma ENAM 2026.1</div>
-                    <h2 class="cronograma__title">Seu caminho ate a aprovacao, dia a dia</h2>
-                    <p class="cronograma__subtitle">O cronograma foi construido a partir dos pontos mais cobrados do
-                        edital. Voce percorre todo o conteudo programatico com seguranca, sabendo exatamente o que
-                        estudar e quando estudar.</p>
+                    <div class="section-tag">O Problema</div>
+                    <h2 class="cronograma__title">O problema não é falta de inteligência.</h2>
+                    <p class="cronograma__subtitle">É falta de direção estratégica. A maioria dos concurseiros nunca
+                        constrói base sólida. Eles sobrevivem de urgência. E prova de alto nível não premia urgência.
+                        Premia consistência estruturada.</p>
                 </div>
 
-                <!-- Bento Grid de beneficios -->
                 <div class="cronograma__grid">
+                    <div class="benefit-card" data-aos="fade-up">
+                        <h3 class="benefit-card__title">Você se identifica?</h3>
+                        <ul class="publico__list" style="margin-top: 20px;">
+                            <li><span>Estuda por edital aberto.</span></li>
+                            <li><span>Vive de reta final.</span></li>
+                            <li><span>Troca de cursinho em cursinho.</span></li>
+                            <li><span>Assiste aula, mas não retém o conteúdo.</span></li>
+                            <li><span>Sempre fica travado nos 60%.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Card grande (span 2 rows) -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="benefit-card__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-                            </svg>
+        <!-- ==================== SISTEMA IRD ==================== -->
+        <section id="metodo" class="metodologia">
+            <div class="container">
+                <div class="metodologia__content" data-aos="fade-up">
+                    <div class="section-tag">Mecanismo Único</div>
+                    <h2 class="metodologia__title">Sistema IRD de Aprovação Estruturada</h2>
+                    <p class="metodologia__subtitle">Não é apenas uma "plataforma", é o seu diferencial estratégico.
+                        Você entra sem organização e sai com um plano semanal claro do que estudar, revisar e testar.
+                    </p>
+
+                    <div class="hero__cta-group" style="margin-top: 30px;">
+                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
+                            Quero meu plano estratégico
+                        </a>
+                    </div>
+                </div>
+
+                <div class="metodologia__tools">
+                    <div class="tool-card" data-aos="fade-up">
+                        <div class="tool-card__body">
+                            <h3 class="tool-card__title">Diferenciais Estratégicos</h3>
+                            <ul class="publico__list" style="margin-top: 20px;">
+                                <li><span>Autoanálise inicial e Cronograma por fase</span></li>
+                                <li><span>PDF direto ao ponto e Jurisprudência aplicada</span></li>
+                                <li><span>Revisão cíclica e Diagnóstico por disciplina</span></li>
+                                <li><span>Bateria direcionada ENAM/FGV</span></li>
+                            </ul>
                         </div>
-                        <h3 class="benefit-card__title">Progressao logica</h3>
-                        <p class="benefit-card__desc">Cada etapa respeita a ordem natural do aprendizado. Do basico ao
-                            avancado, sem saltos e sem lacunas. O conteudo segue uma sequencia pensada para que cada
-                            nova etapa se apoie nas anteriores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COMO FUNCIONA ==================== -->
+        <section class="pilares" style="background: var(--bg-primary);">
+            <div class="container">
+                <div class="pilares__header" data-aos="fade-up">
+                    <div class="section-tag">Como Funciona</div>
+                    <h2 class="pilares__title">Sua jornada em 4 passos</h2>
+                </div>
+
+                <div class="pilares__grid">
+                    <div class="pilar-item" data-aos="fade-up">
+                        <span class="pilar-item__number">01</span>
+                        <span class="pilar-item__name">Diagnóstico</span>
+                    </div>
+                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="100">
+                        <span class="pilar-item__number">02</span>
+                        <span class="pilar-item__name">Organização da fase</span>
+                    </div>
+                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="pilar-item__number">03</span>
+                        <span class="pilar-item__name">Execução com revisão</span>
+                    </div>
+                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="pilar-item__number">04</span>
+                        <span class="pilar-item__name">Ajustes estratégicos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== O QUE VOCE RECEBE ==================== -->
+        <section id="entrega" class="entrega">
+            <div class="container">
+
+                <div class="entrega__header" data-aos="fade-up">
+                    <div class="section-tag">O que esta incluido</div>
+                    <h2 class="entrega__title">O que esta incluido na sua inscricao</h2>
+                </div>
+
+                <div class="entrega__content">
+
+                    <!-- Item Principal -->
+                    <div class="entrega__main-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="entrega__number-decor">1</div>
+                        <div class="entrega__card-body">
+                            <h3 class="entrega__card-title">1 ano completo de acesso a Plataforma IRD -- ENAM</h3>
+                            <p class="entrega__card-desc">Durante 12 meses, voce tera acesso integral a plataforma
+                                com atualizacoes continuas acompanhando edital, banca e tendencias. Tempo realista e
+                                estrategico para buscar a aprovacao com seguranca.</p>
+
+                            <div class="entrega__badge">INCLUSO</div>
+                        </div>
                     </div>
 
-                    <!-- Card medio -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="benefit-card__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                            </svg>
+                    <!-- Item Secundario (Overlap) -->
+                    <div class="entrega__sub-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="entrega__card-body">
+                            <h3 class="entrega__sub-title">Acesso a todas as Retas Finais do ENAM no periodo</h3>
+                            <p class="entrega__sub-desc">Sem custo adicional. As Retas Finais orientam seus estudos
+                                no momento mais decisivo da preparacao. Estrategia certa, no momento certo.</p>
                         </div>
-                        <h3 class="benefit-card__title">Constancia diaria</h3>
-                        <p class="benefit-card__desc">Um cronograma que organiza cada dia de estudo. Voce so precisa
-                            seguir -- sem improvisar, sem desperdicar tempo.</p>
-                    </div>
-
-                    <!-- Card medio -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="benefit-card__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="benefit-card__title">Visao completa ate a prova</h3>
-                        <p class="benefit-card__desc">Voce sabe exatamente onde esta, o que falta e quanto tempo tem.
-                            Sem surpresas no meio do caminho.</p>
                     </div>
 
                 </div>
 
-                <!-- Timeline visual -->
-                <div class="cronograma__timeline" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline__line"></div>
+            </div>
+        </section>
 
-                    <div class="timeline__step">
-                        <div class="timeline__dot"></div>
-                        <span class="timeline__label">Inicio</span>
-                    </div>
+        <!-- ==================== BONUS EXCLUSIVO ==================== -->
+        <section id="bonus" class="bonus">
+            <div class="container">
 
-                    <div class="timeline__step">
-                        <div class="timeline__dot"></div>
-                        <span class="timeline__label">Aprofundamento</span>
-                    </div>
+                <div class="bonus__header" data-aos="fade-up">
+                    <div class="section-tag">BONUS EXCLUSIVO</div>
+                    <h2 class="bonus__title">Continuidade apos a aprovacao</h2>
+                    <p class="bonus__text">Ao ser aprovado no ENAM, voce recebe +1 ano de acesso a Plataforma IRD
+                        para se preparar para as provas objetivas das fases seguintes.</p>
+                </div>
 
-                    <div class="timeline__step">
-                        <div class="timeline__dot"></div>
-                        <span class="timeline__label">Revisao</span>
-                    </div>
+                <div class="bonus__card-wrapper" data-aos="fade-up">
+                    <div class="bonus__glow"></div>
 
-                    <div class="timeline__step">
-                        <div class="timeline__dot"></div>
-                        <span class="timeline__label">Prova</span>
+                    <div class="bonus__card">
+                        <div class="bonus__highlight">
+                            <span class="bonus__counter" data-target="12">0</span>
+                            <span class="bonus__unit">meses</span>
+                            <div class="bonus__highlight-sub">extras para as proximas fases</div>
+                        </div>
+
+                        <p class="bonus__closing">O IRD acompanha a evolucao da sua carreira -- nao apenas ate a
+                            primeira prova.</p>
                     </div>
                 </div>
 
             </div>
-            <!-- ==================== METODOLOGIA ATIVA ==================== -->
-            <section id="metodo" class="metodologia">
-                <div class="container">
+        </section>
 
-                    <!-- Lado esquerdo: Conceito (Sticky) -->
-                    <div class="metodologia__content" data-aos="fade-up">
-                        <div class="section-tag">Metodologia Ativa</div>
-                        <h2 class="metodologia__title">Estudo ativo que funciona na pratica</h2>
-                        <p class="metodologia__subtitle">A Plataforma IRD reune tudo em um unico ambiente. Questoes,
-                            flashcards, simulados e revisoes trabalham juntos dentro do seu cronograma. Sem alternar
-                            entre ferramentas, sem perder tempo.</p>
+        <!-- ==================== PRECO ==================== -->
+        <section id="preco" class="preco">
+            <div class="container">
 
-                        <p class="metodologia__closing">Tudo integrado em um unico processo. A plataforma cuida da
-                            organizacao -- voce foca no estudo.</p>
+                <div class="preco__header" data-aos="fade-up">
+                    <div class="section-tag">Investimento</div>
+                    <h2 class="preco__title">O que você recebe na sua preparação completa</h2>
+                </div>
 
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
+                <div class="preco__card" data-aos="fade-up">
+                    <div class="preco__value-box">
+                        <span class="preco__currency">R$</span>
+                        <span class="preco__amount" id="price-counter" data-target="2410">0</span>
+                        <span class="preco__suffix">à vista</span>
+                    </div>
+
+                    <div class="preco__installment">
+                        ou 12x de <span class="preco__installment-value">R$ 249,25</span>
+                    </div>
+
+                    <div class="preco__features">
+                        <div class="feature-item">
+                            <span>Cronograma extensivo, intensivo e reta final</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>PDFs objetivos e Jurisprudência selecionada</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>Sistema de revisão estruturada e Diagnóstico por disciplina</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>Bateria ENAM/FGV e Onboarding com Anjo</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>Atualizações contínuas e Acesso até aprovação</span>
+                        </div>
+                    </div>
+
+                    <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary preco__cta">
+                        Começar agora
+                    </a>
+
+                    <span class="preco__micro">
+                        Garantia: Se você executar o método e não evoluir, nós reorganizamos sua estratégia.
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        </div>
+        </section>
+
+        <!-- ==================== PARA QUEM É ==================== -->
+        <section class="publico">
+            <div class="container">
+                <div class="publico__header" data-aos="fade-up">
+                    <div class="section-tag">Público-alvo</div>
+                    <h2 class="publico__title">Este curso é para você?</h2>
+                </div>
+
+                <div class="publico__grid">
+
+                    <!-- Lado Positivo -->
+                    <div class="publico__card publico__card--sim" data-aos="fade-right">
+                        <h3 class="publico__card-heading">É para você se...</h3>
+                        <ul class="publico__list">
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Quem saiu da faculdade e não sabe por onde começar.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Quem estuda há anos e não passa dos 60%.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Quem quer parar de depender de reta final.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                                <span>Quem quer aprovação como projeto sério.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Lado Negativo -->
+                    <div class="publico__card publico__card--nao" data-aos="fade-left">
+                        <h3 class="publico__card-heading">Não é para você se...</h3>
+                        <ul class="publico__list">
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>Para quem quer videoaula infinita.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>Para quem quer estudar só quando sai edital.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>Para quem procura fórmula mágica.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ==================== CTA FINAL ==================== -->
+        <section class="cta-final">
+            <div class="cta-final__mesh"></div>
+            <div class="container">
+
+                <div class="cta-final__content">
+                    <h2 class="cta-final__title" data-aos="fade-up">Esta na hora de tomar a decisao certa</h2>
+                    <p class="cta-final__text" data-aos="fade-up" data-aos-delay="100">Voce pode continuar tentando
+                        sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.</p>
+
+                    <div class="cta-final__actions" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary cta-final__btn">
                             Entrar agora na Plataforma IRD - ENAM 2026.1
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
                         </a>
                     </div>
 
-                    <!-- Lado direito: Ferramentas (Cards) -->
-                    <div class="metodologia__tools">
-
-                        <div class="tool-card" data-aos="fade-up" data-aos-delay="0">
-                            <div class="tool-card__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                </svg>
-                            </div>
-                            <div class="tool-card__body">
-                                <h3 class="tool-card__title">Questoes Comentadas</h3>
-                                <p class="tool-card__desc">Resolva questoes no padrao da banca com comentarios
-                                    detalhados em cada alternativa. Entenda a logica por tras das respostas.</p>
-                            </div>
-                        </div>
-
-                        <div class="tool-card" data-aos="fade-up" data-aos-delay="150">
-                            <div class="tool-card__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
-                                </svg>
-                            </div>
-                            <div class="tool-card__body">
-                                <h3 class="tool-card__title">Flashcards com Repeticao Espacada</h3>
-                                <p class="tool-card__desc">Revise os pontos-chave no momento certo. A repeticao espacada
-                                    combate a curva do esquecimento de forma cientifica.</p>
-                            </div>
-                        </div>
-
-                        <div class="tool-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="tool-card__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110 21a3.745 3.745 0 01-3.068-1.593 3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0114 3a3.746 3.746 0 013.068 1.593 3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                                </svg>
-                            </div>
-                            <div class="tool-card__body">
-                                <h3 class="tool-card__title">Simulados Realistas</h3>
-                                <p class="tool-card__desc">Treine em condicoes reais de prova. Gerencie tempo, pressao e
-                                    tome decisoes como no dia oficial.</p>
-                            </div>
-                        </div>
-
-                        <div class="tool-card" data-aos="fade-up" data-aos-delay="450">
-                            <div class="tool-card__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                                </svg>
-                            </div>
-                            <div class="tool-card__body">
-                                <h3 class="tool-card__title">Revisoes Automaticas</h3>
-                                <p class="tool-card__desc">O proprio cronograma programa revisoes nos momentos ideais
-                                    para fixar o conteudo antes que ele se perca.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==================== O QUE VOCE RECEBE ==================== -->
-            <section id="entrega" class="entrega">
-                <div class="container">
-
-                    <div class="entrega__header" data-aos="fade-up">
-                        <div class="section-tag">O que esta incluido</div>
-                        <h2 class="entrega__title">O que esta incluido na sua inscricao</h2>
-                    </div>
-
-                    <div class="entrega__content">
-
-                        <!-- Item Principal -->
-                        <div class="entrega__main-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="entrega__number-decor">1</div>
-                            <div class="entrega__card-body">
-                                <h3 class="entrega__card-title">1 ano completo de acesso a Plataforma IRD -- ENAM</h3>
-                                <p class="entrega__card-desc">Durante 12 meses, voce tera acesso integral a plataforma
-                                    com atualizacoes continuas acompanhando edital, banca e tendencias. Tempo realista e
-                                    estrategico para buscar a aprovacao com seguranca.</p>
-
-                                <div class="entrega__badge">INCLUSO</div>
-                            </div>
-                        </div>
-
-                        <!-- Item Secundario (Overlap) -->
-                        <div class="entrega__sub-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="entrega__card-body">
-                                <h3 class="entrega__sub-title">Acesso a todas as Retas Finais do ENAM no periodo</h3>
-                                <p class="entrega__sub-desc">Sem custo adicional. As Retas Finais orientam seus estudos
-                                    no momento mais decisivo da preparacao. Estrategia certa, no momento certo.</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ==================== BONUS EXCLUSIVO ==================== -->
-            <section id="bonus" class="bonus">
-                <div class="container">
-
-                    <div class="bonus__header" data-aos="fade-up">
-                        <div class="section-tag">BONUS EXCLUSIVO</div>
-                        <h2 class="bonus__title">Continuidade apos a aprovacao</h2>
-                        <p class="bonus__text">Ao ser aprovado no ENAM, voce recebe +1 ano de acesso a Plataforma IRD
-                            para se preparar para as provas objetivas das fases seguintes.</p>
-                    </div>
-
-                    <div class="bonus__card-wrapper" data-aos="fade-up">
-                        <div class="bonus__glow"></div>
-
-                        <div class="bonus__card">
-                            <div class="bonus__highlight">
-                                <span class="bonus__counter" data-target="12">0</span>
-                                <span class="bonus__unit">meses</span>
-                                <div class="bonus__highlight-sub">extras para as proximas fases</div>
-                            </div>
-
-                            <p class="bonus__closing">O IRD acompanha a evolucao da sua carreira -- nao apenas ate a
-                                primeira prova.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ==================== PRECO ==================== -->
-            <section id="preco" class="preco">
-                <div class="container">
-
-                    <div class="preco__header" data-aos="fade-up">
-                        <div class="section-tag">Investimento</div>
-                        <h2 class="preco__title">Invista na sua aprovacao</h2>
-                    </div>
-
-                    <div class="preco__card" data-aos="fade-up">
-                        <div class="preco__value-box">
-                            <span class="preco__currency">R$</span>
-                            <span class="preco__amount" id="price-counter" data-target="2097">0</span>
-                            <span class="preco__suffix">a vista</span>
-                        </div>
-
-                        <div class="preco__installment">
-                            ou 12x de <span class="preco__installment-value">R$ 198,29</span>
-                        </div>
-
-                        <div class="preco__features">
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="0">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>12 meses de acesso completo</span>
-                            </div>
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="50">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Cronograma ENAM 2026.1 estruturado</span>
-                            </div>
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Questoes, flashcards, simulados e revisoes</span>
-                            </div>
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="150">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Acesso a todas as Retas Finais do periodo</span>
-                            </div>
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Bonus: +12 meses apos aprovacao</span>
-                            </div>
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="250">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Suporte dedicado</span>
-                            </div>
-                        </div>
-
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary preco__cta">
-                            Entrar agora na Plataforma IRD - ENAM 2026.1
+                    <div class="cta-final__bullets" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bullet">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                             </svg>
-                        </a>
-
-                        <span class="preco__micro">
+                            <span>Acesso imediato</span>
+                        </div>
+                        <div class="bullet">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                             </svg>
-                            Acesso imediato apos a inscricao
-                        </span>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ==================== PARA QUEM E ==================== -->
-            <section class="publico">
-                <div class="container">
-                    <div class="publico__header" data-aos="fade-up">
-                        <div class="section-tag">Publico-alvo</div>
-                        <h2 class="publico__title">Este curso e para voce?</h2>
-                    </div>
-
-                    <div class="publico__grid">
-
-                        <!-- Lado Positivo -->
-                        <div class="publico__card publico__card--sim" data-aos="fade-right">
-                            <h3 class="publico__card-heading">E para voce se...</h3>
-                            <ul class="publico__list">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                    <span>Quer um caminho claro do inicio ate a prova</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                    <span>Busca um processo organizado e confiavel</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                    <span>Precisa conciliar estudo com trabalho ou faculdade</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                    <span>Quer estudar com estrategia, nao com excesso de material</span>
-                                </li>
-                            </ul>
+                            <span>12 meses de acesso</span>
                         </div>
-
-                        <!-- Lado Negativo -->
-                        <div class="publico__card publico__card--nao" data-aos="fade-left">
-                            <h3 class="publico__card-heading">Nao e para voce se...</h3>
-                            <ul class="publico__list">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    <span>Busca atalhos ou promessas milagrosas</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    <span>Nao pretende seguir um cronograma com disciplina</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    <span>Prefere estudar sem direcao ou sem metodo</span>
-                                </li>
-                            </ul>
+                        <div class="bullet">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+                            <span>Suporte dedicado</span>
                         </div>
-
                     </div>
                 </div>
-            </section>
 
-            <!-- ==================== POR QUE FUNCIONA ==================== -->
-            <section class="pilares">
-                <div class="container">
+            </div>
+        </section>
 
-                    <div class="pilares__header" data-aos="fade-up">
-                        <div class="section-tag">Por que funciona</div>
-                        <h2 class="pilares__title">Por que o metodo IRD gera aprovacao</h2>
-                        <p class="pilares__subtitle">Aprovacao nao e sorte. E o resultado de um processo bem executado,
-                            dia apos dia.</p>
-                    </div>
+        <!-- ==================== FAQ ==================== -->
+        <section id="faq" class="faq">
+            <div class="container">
 
-                    <div class="pilares__grid">
-
-                        <div class="pilar-item" data-aos="fade-up" data-aos-delay="0">
-                            <span class="pilar-item__number" data-target="1">0</span>
-                            <span class="pilar-item__name">Processo correto</span>
-                        </div>
-
-                        <div class="pilar-item" data-aos="fade-up" data-aos-delay="100">
-                            <span class="pilar-item__number" data-target="2">0</span>
-                            <span class="pilar-item__name">Execucao consistente</span>
-                        </div>
-
-                        <div class="pilar-item" data-aos="fade-up" data-aos-delay="200">
-                            <span class="pilar-item__number" data-target="3">0</span>
-                            <span class="pilar-item__name">Revisao planejada</span>
-                        </div>
-
-                        <div class="pilar-item" data-aos="fade-up" data-aos-delay="300">
-                            <span class="pilar-item__number" data-target="4">0</span>
-                            <span class="pilar-item__name">Direcionamento estrategico</span>
-                        </div>
-
-                    </div>
-
-                    <div class="pilares__closing" data-aos="fade-up" data-aos-delay="200">
-                        "Isso e exatamente o que o IRD entrega."
-                    </div>
-
+                <div class="faq__header" data-aos="fade-up">
+                    <div class="section-tag">Dúvidas Frequentes</div>
+                    <h2 class="faq__title">Perguntas frequentes</h2>
                 </div>
-            </section>
 
-            <!-- ==================== CTA FINAL ==================== -->
-            <section class="cta-final">
-                <div class="cta-final__mesh"></div>
-                <div class="container">
+                <div class="faq__accordion">
 
-                    <div class="cta-final__content">
-                        <h2 class="cta-final__title" data-aos="fade-up">Esta na hora de tomar a decisao certa</h2>
-                        <p class="cta-final__text" data-aos="fade-up" data-aos-delay="100">Voce pode continuar tentando
-                            sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.</p>
-
-                        <div class="cta-final__actions" data-aos="fade-up" data-aos-delay="200">
-                            <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary cta-final__btn">
-                                Entrar agora na Plataforma IRD - ENAM 2026.1
-                            </a>
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>Qual a carga horária de estudo recomendada?</span>
+                            <div class="faq__icon"></div>
                         </div>
+                        <div class="faq__answer">
+                            <p>O cronograma foi pensado para uma média de 4 horas de estudo diário, mas pode ser
+                                adaptado à sua realidade. O importante é a constância e seguir o plano de forma
+                                organizada.</p>
+                        </div>
+                    </div>
 
-                        <div class="cta-final__bullets" data-aos="fade-up" data-aos-delay="300">
-                            <div class="bullet">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Acesso imediato</span>
-                            </div>
-                            <div class="bullet">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>12 meses de acesso</span>
-                            </div>
-                            <div class="bullet">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Suporte dedicado</span>
-                            </div>
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>O curso é atualizado conforme mudanças no edital?</span>
+                            <div class="faq__icon"></div>
+                        </div>
+                        <div class="faq__answer">
+                            <p>Sim. A plataforma é constantemente atualizada com base nas mudanças de edital,
+                                jurisprudência e tendências da banca. Você sempre terá acesso ao conteúdo mais
+                                relevante.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>Sou iniciante, esse curso é para mim?</span>
+                            <div class="faq__icon"></div>
+                        </div>
+                        <div class="faq__answer">
+                            <p>Com certeza. O cronograma começa do básico e evolui de forma progressiva. Você não
+                                precisa de conhecimento prévio -- o método te guia do zero até a prova.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>Consigo conciliar com trabalho?</span>
+                            <div class="faq__icon"></div>
+                        </div>
+                        <div class="faq__answer">
+                            <p>Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de ~4h
+                                diárias pode ser distribuído ao longo do dia conforme sua rotina.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>Como funciona o acesso até a aprovação?</span>
+                            <div class="faq__icon"></div>
+                        </div>
+                        <div class="faq__answer">
+                            <p>Ao contrário de outras plataformas com tempo fixo, o IRD oferece acesso contínuo e
+                                acompanhamento até que você atinja o seu objetivo. Nós acompanhamos a evolução da sua
+                                carreira.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" data-aos="fade-up">
+                        <div class="faq__question">
+                            <span>Posso acessar pelo celular?</span>
+                            <div class="faq__icon"></div>
+                        </div>
+                        <div class="faq__answer">
+                            <p>Sim. A plataforma é 100% responsiva e funciona perfeitamente em celulares, tablets e
+                                computadores. Estude de onde você estiver.</p>
                         </div>
                     </div>
 
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- ==================== FAQ ==================== -->
-            <section id="faq" class="faq">
-                <div class="container">
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="footer">
+            <div class="container">
 
-                    <div class="faq__header" data-aos="fade-up">
-                        <div class="section-tag">Duvidas Frequentes</div>
-                        <h2 class="faq__title">Perguntas frequentes</h2>
+                <div class="footer__top">
+                    <div class="footer__brand">
+                        <a href="#" class="footer__logo">Plataforma <span>IRD</span></a>
+                        <p class="footer__description">A plataforma de estudos que te leva do início até a aprovação na
+                            Magistratura e no ENAM. Estudo organizado, estratégico e direcionado.</p>
                     </div>
 
-                    <div class="faq__accordion">
+                    <div class="footer__nav">
+                        <h4 class="footer__title">Links</h4>
+                        <ul class="footer__links">
+                            <li><a href="#problema">O Problema</a></li>
+                            <li><a href="#metodo">Método</a></li>
+                            <li><a href="#preco">Bônus</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
 
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>Como funciona o cronograma?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>O cronograma e estruturado dia a dia, desde o primeiro momento ate a data da prova.
-                                    Ele organiza o que voce deve estudar, quando revisar e quando resolver questoes,
-                                    tudo baseado nos pesos e recorrencias do edital do ENAM.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>O acesso e imediato?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>Sim! Assim que sua inscricao for confirmada, voce recebe os dados de acesso por
-                                    e-mail e ja pode comecar seus estudos na plataforma no mesmo instante.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>E se eu nao gostar do curso?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>Voce tem uma garantia incondicional de 7 dias. Se por qualquer motivo voce achar que
-                                    a Plataforma IRD nao e para voce, basta solicitar o reembolso integral dentro desse
-                                    periodo.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>O cronograma serve para quem trabalha?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>Com certeza. O metodo foi desenhado para ser eficiente com cerca de 4 horas de estudo
-                                    diario, permitindo que quem trabalha ou faz faculdade consiga manter a constancia
-                                    sem sobrecarga.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>Como funcionam os flashcards?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>Utilizamos um sistema de Repeticao Espacada integrado. A plataforma identifica quais
-                                    pontos voce tem mais dificuldade e programa as revisoes desses temas no momento
-                                    ideal para fixacao na memoria de longo prazo.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq__item" data-aos="fade-up">
-                            <div class="faq__question">
-                                <span>Terei suporte para duvidas?</span>
-                                <div class="faq__icon"></div>
-                            </div>
-                            <div class="faq__answer">
-                                <p>Sim, temos um suporte dedicado para te auxiliar em qualquer dificuldade tecnica ou
-                                    duvida sobre o cronograma durante todo o seu periodo de acesso.</p>
-                            </div>
-                        </div>
-
+                    <div class="footer__contact">
+                        <h4 class="footer__title">Contatos</h4>
+                        <ul class="footer__contacts">
+                            <li>suporte@institutoird.com</li>
+                            <li>(67) 99906-2339</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
 
-            <!-- ==================== FOOTER ==================== -->
-            <footer class="footer">
-                <div class="container">
-
-                    <div class="footer__top">
-                        <div class="footer__brand">
-                            <a href="#" class="footer__logo">Plataforma <span>IRD</span></a>
-                            <p class="footer__description">A plataforma de estudos que te leva do inicio ate a aprovacao
-                                no ENAM. Estudo organizado, estrategico e direcionado.</p>
-                        </div>
-
-                        <div class="footer__nav">
-                            <h4 class="footer__title">Links</h4>
-                            <ul class="footer__links">
-                                <li><a href="#cronograma">Cronograma</a></li>
-                                <li><a href="#metodo">Metodo</a></li>
-                                <li><a href="#bonus">Bonus</a></li>
-                                <li><a href="#faq">FAQ</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer__contact">
-                            <h4 class="footer__title">Contatos</h4>
-                            <ul class="footer__contacts">
-                                <li>suporte@institutoird.com</li>
-                                <li>(67) 99906-2339</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="footer__bottom">
-                        <p class="footer__copyright">© 2026 Plataforma IRD. Todos os direitos reservados</p>
-                        <div class="footer__legal">
-                            <a href="#">Termos de Uso</a>
-                            <a href="#">Politica de Privacidade</a>
-                        </div>
-                    </div>
-
+                <div class="footer__bottom">
+                    <p class="footer__copyright">© 2026 Plataforma IRD. Todos os direitos reservados | Termos de Uso |
+                        Política de Privacidade</p>
                 </div>
-            </footer>
 
-            <!-- Script Accordion -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const faqQuestions = document.querySelectorAll('.faq__question');
+            </div>
+        </footer>
 
-                    faqQuestions.forEach(question => {
-                        question.addEventListener('click', () => {
-                            const item = question.parentElement;
-                            const isActive = item.classList.contains('active');
+        <!-- Script Accordion -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const faqQuestions = document.querySelectorAll('.faq__question');
 
-                            // Fecha todos os outros
-                            document.querySelectorAll('.faq__item').forEach(otherItem => {
-                                otherItem.classList.remove('active');
-                                otherItem.querySelector('.faq__answer').style.maxHeight = null;
-                            });
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', () => {
+                        const item = question.parentElement;
+                        const isActive = item.classList.contains('active');
 
-                            // Abre o atual se nao estava ativo
-                            if (!isActive) {
-                                item.classList.add('active');
-                                const answer = item.querySelector('.faq__answer');
-                                answer.style.maxHeight = answer.scrollHeight + "px";
-                            }
+                        // Fecha todos os outros
+                        document.querySelectorAll('.faq__item').forEach(otherItem => {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq__answer').style.maxHeight = null;
                         });
+
+                        // Abre o atual se nao estava ativo
+                        if (!isActive) {
+                            item.classList.add('active');
+                            const answer = item.querySelector('.faq__answer');
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                        }
                     });
                 });
-            </script>
+            });
+        </script>
 
     </main>
 

@@ -1,200 +1,143 @@
-# Copy - Plataforma IRD | ENAM 2026.1
+# Copy - MAGIS + ENAM ATÉ A APROVAÇÃO
 
 ---
 
-## Navegacao (Header)
+## Navegação (Header)
 
 - Logo: Plataforma IRD
-- Links: Cronograma | Metodo | Bonus | FAQ
-- CTA Header: Comecar agora
+- Links: Cronograma | Método | Bônus | FAQ
+- CTA Header: Começar agora
 
 ---
 
 ## Hero
 
-- Headline: Sua aprovacao no ENAM 2026.1 comeca com um plano
-- Subheadline: Cronograma estruturado do primeiro dia ate a prova. Baseado no edital, focado no que realmente cai, e feito para quem quer estudar com clareza -- nao no escuro.
-- Badges:
-  - 4h/dia | Estudo medio diario
-  - 100% direcionado | Foco no que cai na prova
-  - 365 dias | Acesso completo
-- CTA: Quero meu cronograma ENAM 2026.1 (link: https://pay.hotmart.com/Q100171412O)
-- Micro-texto abaixo do CTA: Acesso imediato apos a inscricao
+- Headline: Passe na Magistratura e no ENAM com um plano estruturado até a sua aprovação — mesmo que hoje você esteja perdido, atrasado ou recomeçando.
+- Subheadline: Cronograma pronto + PDFs objetivos + Revisão estruturada + Diagnóstico por disciplina — acesso contínuo até a aprovação.
+- CTA: Clique no botão abaixo e organize sua aprovação hoje.
+- Micro-texto abaixo do CTA: Saia do ciclo eterno de cursinhos e entre em um plano estratégico que te conduz até a posse.
 
 ---
 
-## Secao: Cronograma ENAM 2026.1
+## Seção: O Problema (Agitação)
 
-- Titulo: Seu caminho ate a aprovacao, dia a dia
-- Subtitulo: O cronograma foi construido a partir dos pontos mais cobrados do edital. Voce percorre todo o conteudo programatico com seguranca, sabendo exatamente o que estudar e quando estudar.
-
-### Cards de beneficios:
-
-- **Progressao logica**
-  Cada etapa respeita a ordem natural do aprendizado. Do basico ao avançado, sem saltos e sem lacunas.
-
-- **Constancia diaria**
-  Um cronograma que organiza cada dia de estudo. Voce so precisa seguir -- sem improvisar, sem desperdicar tempo.
-
-- **Visao completa ate a prova**
-  Voce sabe exatamente onde esta, o que falta e quanto tempo tem. Sem surpresas no meio do caminho.
-
-### Timeline visual:
-
-- Inicio → Aprofundamento → Revisao → Prova
+- Título: O problema não é falta de inteligência.
+- Subtitulo: É falta de direção estratégica.
+- Conteúdo:
+  A maioria dos concurseiros nunca constrói base sólida. Eles sobrevivem de urgência. E prova de alto nível não premia urgência. Premia consistência estruturada.
+  
+  Você se identifica?
+  - Estuda por edital aberto.
+  - Vive de reta final.
+  - Troca de cursinho.
+  - Assiste aula, mas não retém.
+  - Fica nos 60%.
 
 ---
 
-## Secao: Metodologia Ativa
+## Seção: Mecanismo Único (Sistema IRD)
 
-- Titulo: Estudo ativo que funciona na pratica
-- Subtitulo: A Plataforma IRD reune tudo em um unico ambiente. Questoes, flashcards, simulados e revisoes trabalham juntos dentro do seu cronograma. Sem alternar entre ferramentas, sem perder tempo.
+- Título: Sistema IRD de Aprovação Estruturada
+- Subtítulo: Não é apenas uma "plataforma", é o seu diferencial estratégico.
+- Conteúdo:
+  Você entra sem organização e sai com um plano semanal claro do que estudar, revisar e testar. O Sistema IRD conduz você através de uma transformação real.
 
-### Ferramentas:
-
-- **Questoes Comentadas**
-  Resolva questoes no padrao da banca com comentarios detalhados em cada alternativa. Entenda a logica por tras das respostas.
-
-- **Flashcards com Repeticao Espacada**
-  Revise os pontos-chave no momento certo. A repeticao espacada combate a curva do esquecimento de forma cientifica.
-
-- **Simulados Realistas**
-  Treine em condicoes reais de prova. Gerencie tempo, pressao e tome decisoes como no dia oficial.
-
-- **Revisoes Automaticas**
-  O proprio cronograma programa revisoes nos momentos ideais para fixar o conteudo antes que ele se perca.
-
-- Fechamento: Tudo integrado em um unico processo. A plataforma cuida da organizacao -- voce foca no estudo.
-- CTA: Entrar agora na Plataforma IRD - ENAM 2026.1 (link: https://pay.hotmart.com/Q100171412O)
+- Diferenciais:
+  - Autoanálise inicial
+  - Cronograma por fase (base, consolidação, reta final)
+  - PDF direto ao ponto
+  - Jurisprudência aplicada
+  - Revisão cíclica
+  - Diagnóstico por disciplina
+  - Bateria direcionada ENAM/FGV
 
 ---
 
-## Secao: O que voce recebe
+## Seção: Como Funciona (Em 4 Passos)
 
-- Titulo: O que esta incluido na sua inscricao
-
-### Item principal:
-
-- **1 ano completo de acesso a Plataforma IRD -- ENAM**
-  Durante 12 meses, voce tera acesso integral a plataforma com atualizacoes continuas acompanhando edital, banca e tendencias. Tempo realista e estrategico para buscar a aprovacao com seguranca.
-
-### Item secundario:
-
-- **Acesso a todas as Retas Finais do ENAM no periodo**
-  Sem custo adicional. As Retas Finais orientam seus estudos no momento mais decisivo da preparacao. Estrategia certa, no momento certo.
+- Passo 1: Diagnóstico
+- Passo 2: Organização da fase
+- Passo 3: Execução com revisão estruturada
+- Passo 4: Ajustes estratégicos até o corte
 
 ---
 
-## Secao: Bonus Exclusivo
+## Seção: Para Quem É
 
-- Titulo: Continuidade apos a aprovacao
-- Texto: Ao ser aprovado no ENAM, voce recebe +1 ano de acesso a Plataforma IRD para se preparar para as provas objetivas das fases seguintes.
-- Destaque: +12 meses extras para as proximas fases
-- Fechamento: O IRD acompanha a evolucao da sua carreira -- nao apenas ate a primeira prova.
+- Quem saiu da faculdade e não sabe por onde começar.
+- Quem estuda há anos e não passa dos 60%.
+- Quem quer parar de depender de reta final.
+- Quem quer aprovação como projeto sério.
 
 ---
 
-## Secao: Preco
+## Seção: Para Quem Não É
 
-- Titulo: Invista na sua aprovacao
-- Preco principal: R$ 2.097,00 a vista
-- Parcelamento: ou 12x de R$ 198,29
+- Para quem quer videoaula infinita.
+- Para quem quer estudar só quando sai edital.
+- Para quem procura fórmula mágica.
+
+---
+
+## Seção: Oferta (Magis + ENAM até a aprovação)
+
+- Título: O que você recebe na sua preparação completa
 - Itens inclusos:
-  - 12 meses de acesso completo
-  - Cronograma ENAM 2026.1 estruturado
-  - Questoes, flashcards, simulados e revisoes
-  - Acesso a todas as Retas Finais do periodo
-  - Bonus: +12 meses apos aprovacao
-  - Suporte dedicado
-- CTA: Entrar agora na Plataforma IRD - ENAM 2026.1 (link: https://pay.hotmart.com/Q100171412O)
-- Micro-texto: Acesso imediato apos a inscricao
+  - Cronograma extensivo, intensivo e reta final
+  - PDFs objetivos
+  - Jurisprudência selecionada
+  - Sistema de revisão estruturada
+  - Diagnóstico por disciplina
+  - Bateria ENAM/FGV
+  - Onboarding com Anjo da Plataforma
+  - Atualizações contínuas
+  - Acesso contínuo até aprovação.
+
+- Preço:
+  - 12x R$ 249,25
+  - ou R$ 2.410 à vista
 
 ---
 
-## Secao: Para quem e
+## Seção: Remoção de Risco
 
-- Titulo: Este curso e para voce?
-
-### E para voce se...
-
-- Quer um caminho claro do inicio ate a prova
-- Busca um processo organizado e confiavel
-- Precisa conciliar estudo com trabalho ou faculdade
-- Quer estudar com estrategia, nao com excesso de material
-
-### Nao e para voce se...
-
-- Busca atalhos ou promessas milagrosas
-- Nao pretende seguir um cronograma com disciplina
-- Prefere estudar sem direcao ou sem metodo
-
----
-
-## Secao: Por que funciona
-
-- Titulo: Por que o metodo IRD gera aprovacao
-- Subtitulo: Aprovacao nao e sorte. E o resultado de um processo bem executado, dia apos dia.
-
-### Pilares:
-
-- Processo correto
-- Execucao consistente
-- Revisao planejada
-- Direcionamento estrategico
-
-- Fechamento: Isso e exatamente o que o IRD entrega.
-
----
-
-## Secao: CTA Final
-
-- Titulo: Esta na hora de tomar a decisao certa
-- Texto: Voce pode continuar tentando sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.
-- CTA: Entrar agora na Plataforma IRD - ENAM 2026.1 (link: https://pay.hotmart.com/Q100171412O)
-- Bullets abaixo do CTA:
-  - Acesso imediato
-  - 12 meses de acesso
-  - Suporte dedicado
+- Título: Você não está comprando acesso.
+- Subtítulo: Está garantindo acompanhamento até a sua aprovação.
+- Garantia: Se você executar o método e não evoluir, nós reorganizamos sua estratégia. Isso muda tudo.
 
 ---
 
 ## FAQ
 
-- Titulo: Perguntas frequentes
+- Título: Perguntas frequentes
 
-- **Qual a carga horaria de estudo recomendada?**
-  O cronograma foi pensado para uma media de 4 horas de estudo diario, mas pode ser adaptado a sua realidade. O importante e a constancia e seguir o plano de forma organizada.
+- **Qual a carga horária de estudo recomendada?**
+  O cronograma foi pensado para uma média de 4 horas de estudo diário, mas pode ser adaptado à sua realidade. O importante é a constância e seguir o plano de forma organizada.
 
-- **O curso e atualizado conforme mudancas no edital?**
-  Sim. A plataforma e constantemente atualizada com base nas mudancas de edital, jurisprudencia e tendencias da banca. Voce sempre tera acesso ao conteudo mais relevante.
+- **O curso é atualizado conforme mudanças no edital?**
+  Sim. A plataforma é constantemente atualizada com base nas mudanças de edital, jurisprudência e tendências da banca. Você sempre terá acesso ao conteúdo mais relevante.
 
-- **Sou iniciante, esse curso e para mim?**
-  Com certeza. O cronograma comeca do basico e evolui de forma progressiva. Voce nao precisa de conhecimento previo -- o metodo te guia do zero ate a prova.
+- **Sou iniciante, esse curso é para mim?**
+  Com certeza. O cronograma começa do básico e evolui de forma progressiva. Você não precisa de conhecimento prévio -- o método te guia do zero até a prova.
 
 - **Consigo conciliar com trabalho?**
-  Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de ~4h diarias pode ser distribuido ao longo do dia conforme sua rotina.
+  Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de ~4h diárias pode ser distribuído ao longo do dia conforme sua rotina.
 
-- **Como funciona o bonus apos aprovacao?**
-  Se voce for aprovado no ENAM enquanto tiver acesso ativo a plataforma, voce recebe automaticamente +1 ano de acesso para se preparar para as fases seguintes do concurso. Sem custo adicional.
+- **Como funciona o acesso até a aprovação?**
+  Ao contrário de outras plataformas com tempo fixo, o IRD oferece acesso contínuo e acompanhamento até que você atinja o seu objetivo. Nós acompanhamos a evolução da sua carreira.
 
 - **Posso acessar pelo celular?**
-  Sim. A plataforma e 100% responsiva e funciona perfeitamente em celulares, tablets e computadores. Estude de onde voce estiver.
+  Sim. A plataforma é 100% responsiva e funciona perfeitamente em celulares, tablets e computadores. Estude de onde você estiver.
 
 ---
 
 ## Footer
 
 - Logo: Plataforma IRD
-- Descricao: A plataforma de estudos que te leva do inicio ate a aprovacao no ENAM. Estudo organizado, estrategico e direcionado.
-
-### Links
-- Cronograma
-- Metodo
-- Bonus
-- FAQ
+- Descrição: A plataforma de estudos que te leva do início até a aprovação na Magistratura e no ENAM. Estudo organizado, estratégico e direcionado.
 
 ### Contatos
 - suporte@institutoird.com
 - (67) 99906-2339
 
-- Rodape: © 2026 Plataforma IRD. Todos os direitos reservados | Termos de Uso | Politica de Privacidade
+- Rodapé: © 2026 Plataforma IRD. Todos os direitos reservados | Termos de Uso | Política de Privacidade
