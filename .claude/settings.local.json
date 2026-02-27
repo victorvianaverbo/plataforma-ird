@@ -9,7 +9,9 @@
       "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/components/dashboard/PlatformCards.tsx --jq '.content')",
       "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/App.tsx --jq '.content')",
       "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/index.css --jq '.content')",
-      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/package.json --jq '.content')"
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/package.json --jq '.content')",
+      "Bash(python3:*)",
+      "WebSearch"
     ]
   }
 }
