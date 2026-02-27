@@ -78,8 +78,14 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- intl-tel-input -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
+
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // AOS init
@@ -163,7 +169,7 @@
                 <a href="#metodo" class="header__link">Método</a>
                 <a href="#bonus" class="header__link">Bônus</a>
                 <a href="#faq" class="header__link">FAQ</a>
-                <a href="https://pay.hotmart.com/Q100171412O" class="header__cta">Começar agora</a>
+                <a href="#preco" class="header__cta">Começar agora</a>
             </nav>
 
             <button class="header__toggle" aria-label="Menu">
@@ -196,7 +202,7 @@
                     </p>
 
                     <div class="hero__cta-group">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
+                        <a href="#preco" class="btn-primary">
                             Clique aqui e organize sua aprovação hoje
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor">
@@ -282,7 +288,7 @@
                     </p>
 
                     <div class="hero__cta-group" style="margin-top: 30px;">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
+                        <a href="#preco" class="btn-primary">
                             Quero meu plano estratégico
                         </a>
                     </div>
@@ -388,7 +394,7 @@
 
                     <div class="bonus__card">
                         <div class="bonus__highlight">
-                            <span class="bonus__counter" data-target="12">0</span>
+                            <span class="bonus__counter" data-target="12">12</span>
                             <span class="bonus__unit">meses</span>
                             <div class="bonus__highlight-sub">extras para as proximas fases</div>
                         </div>
@@ -413,7 +419,7 @@
                 <div class="preco__card" data-aos="fade-up">
                     <div class="preco__value-box">
                         <span class="preco__currency">R$</span>
-                        <span class="preco__amount" id="price-counter" data-target="2410">0</span>
+                        <span class="preco__amount" id="price-counter" data-target="2410">2.410</span>
                         <span class="preco__suffix">à vista</span>
                     </div>
 
@@ -439,7 +445,7 @@
                         </div>
                     </div>
 
-                    <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary preco__cta">
+                    <a href="javascript:void(0)" class="btn-primary preco__cta js-open-checkout">
                         Começar agora
                     </a>
 
@@ -544,7 +550,7 @@
                         sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.</p>
 
                     <div class="cta-final__actions" data-aos="fade-up" data-aos-delay="200">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary cta-final__btn">
+                        <a href="#preco" class="btn-primary cta-final__btn">
                             Entrar agora na Plataforma IRD - ENAM 2026.1
                         </a>
                     </div>
@@ -728,6 +734,184 @@
 
     </main>
 
+    <!-- MODAL DE CHECKOUT -->
+    <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Finalizar Inscrição">
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="close-modal" aria-label="Fechar">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Quase lá!</h2>
+                <p class="modal-subtitle">Preencha seus dados para prosseguir para o pagamento seguro.</p>
+            </div>
+
+            <form name="lead-checkout" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form
+                id="checkout-form">
+                <input type="hidden" name="form-name" value="lead-checkout">
+                <p hidden><label>Nao preencha: <input name="bot-field"></label></p>
+
+                <!-- UTMs -->
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="utm_term" id="utm_term">
+                <input type="hidden" name="utm_content" id="utm_content">
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-nome">Nome Completo</label>
+                    <input type="text" id="modal-nome" name="nome" class="form-input" placeholder="Seu nome completo"
+                        required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-email">E-mail</label>
+                    <input type="email" id="modal-email" name="email" class="form-input" placeholder="seu@email.com"
+                        required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-telefone">WhatsApp</label>
+                    <input type="tel" id="modal-telefone" name="telefone" class="form-input" required
+                        autocomplete="tel">
+                </div>
+
+                <div class="form-feedback"></div>
+
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; justify-content: center; margin-top: 20px;">
+                    Ir para o Pagamento Seguro
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" style="width: 18px; margin-left: 8px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+
+                <p class="modal-security">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" style="width: 12px; margin-right: 4px;">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                    Ambiente 100% Seguro e Criptografado
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // UTM Management
+        function saveUTMs() {
+            const params = new URLSearchParams(window.location.search);
+            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+            utms.forEach(utm => {
+                const value = params.get(utm);
+                if (value) localStorage.setItem(utm, value);
+            });
+        }
+
+        function fillUTMs() {
+            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+            utms.forEach(utm => {
+                const value = localStorage.getItem(utm);
+                const el = document.getElementById(utm);
+                if (value && el) el.value = value;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            saveUTMs();
+            fillUTMs();
+
+            // Modal Logic
+            const modal = document.getElementById('checkout-modal');
+            const openBtns = document.querySelectorAll('.js-open-checkout');
+            const closeBtn = document.getElementById('close-modal');
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            openBtns.forEach(btn => btn.addEventListener('click', openModal));
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+            // intl-tel-input
+            const phoneInput = document.getElementById('modal-telefone');
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: 'br',
+                preferredCountries: ['br', 'us', 'pt'],
+                separateDialCode: true,
+                autoPlaceholder: 'polite',
+                strictMode: true,
+                loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js'
+            });
+
+            // Form Submit
+            const form = document.getElementById('checkout-form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!iti.isValidNumber()) {
+                    alert('Por favor, insira um número de WhatsApp válido.');
+                    return;
+                }
+
+                const formData = new FormData(form);
+                const name = formData.get('nome');
+                const email = formData.get('email');
+                const phone = iti.getNumber();
+
+                // Botão loading state
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = 'Processando...';
+
+                // Enviar para Netlify
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                    .then(() => {
+                        // Track lead (Meta Pixel)
+                        if (window.fbq) {
+                            fbq('track', 'Lead', {
+                                content_name: 'Checkout Plataforma IRD',
+                                value: 2410.00,
+                                currency: 'BRL'
+                            });
+                        }
+
+                        // Redirecionar para Hotmart
+                        const hotmartUrl = new URL('https://pay.hotmart.com/L85860528K');
+                        hotmartUrl.searchParams.set('bid', '1772194525196');
+                        hotmartUrl.searchParams.set('name', name);
+                        hotmartUrl.searchParams.set('email', email);
+                        hotmartUrl.searchParams.set('phone', phone);
+
+                        // Add UTMs to redirect
+                        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(utm => {
+                            const val = localStorage.getItem(utm);
+                            if (val) hotmartUrl.searchParams.set(utm, val);
+                        });
+
+                        window.location.href = hotmartUrl.toString();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        btn.disabled = false;
+                        btn.innerHTML = originalText;
+                        alert('Ocorreu um erro. Por favor, tente novamente.');
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
