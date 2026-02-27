@@ -19,7 +19,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (Deferred via RequestIdleCallback for Performance) -->
     <script>
         // Lógica para CAPI (Deduplicação e Matching)
         function getExternalId() {
@@ -34,40 +34,48 @@
         const external_id = getExternalId();
         const page_view_id = 'pv_' + Math.random().toString(36).substr(2, 9) + Date.now();
 
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+        function loadMetaPixel() {
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
 
-        fbq('init', '1026349941870089', { external_id: external_id });
-        fbq('track', 'PageView', {}, { eventID: page_view_id });
+            fbq('init', '1026349941870089', { external_id: external_id });
+            fbq('track', 'PageView', {}, { eventID: page_view_id });
 
-        // Enviar para CAPI (Netlify Function)
-        fetch('/.netlify/functions/capi', {
-            method: 'POST',
-            body: JSON.stringify({
-                event_name: 'PageView',
-                event_id: page_view_id,
-                user_data: { external_id: external_id }
-            })
-        }).catch(err => console.error('CAPI fetch error:', err));
+            // Enviar para CAPI (Netlify Function)
+            fetch('/.netlify/functions/capi', {
+                method: 'POST',
+                body: JSON.stringify({
+                    event_name: 'PageView',
+                    event_id: page_view_id,
+                    user_data: { external_id: external_id }
+                })
+            }).catch(err => console.error('CAPI fetch error:', err));
+        }
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => { loadMetaPixel(); });
+        } else {
+            setTimeout(() => { loadMetaPixel(); }, 3000);
+        }
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- FONTS: DM Serif Display + DM Sans -->
+    <!-- FONTS: DM Serif Display + DM Sans (Max 3 Weights) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap"
         rel="stylesheet">
 
     <!-- Preconnect CDNs -->
@@ -218,15 +226,6 @@
                     </div>
                 </div>
 
-                <!-- Lado direito: Elementos Visuais Abstratos -->
-                <div class="hero__aside">
-                    <div class="hero__visual">
-                        <div class="shape shape-1"></div>
-                        <div class="shape shape-2"></div>
-                        <div class="shape shape-3"></div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -241,7 +240,7 @@
                     <div class="vsl__frame">
                         <div class="vsl__video-wrapper">
                             <iframe src="https://www.youtube.com/embed/0dmRcHqYXQY?rel=0&showinfo=0"
-                                title="Sistema IRD - Apresentação" frameborder="0"
+                                title="Sistema IRD - Apresentação" frameborder="0" loading="lazy"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                             </iframe>

@@ -13,7 +13,7 @@
 ## Hero
 
 - Headline: Passe na Magistratura e no ENAM com um plano estruturado até a sua aprovação — mesmo que hoje você esteja perdido, atrasado ou recomeçando.
-- Subheadline: Cronograma pronto + PDFs objetivos + Revisão estruturada + Diagnóstico por disciplina — acesso contínuo até a aprovação.
+- Subheadline: Cronograma pronto + PDFs objetivos + Revisão estruturada + Diagnóstico por disciplina | acesso contínuo até a aprovação.
 - CTA: Clique no botão abaixo e organize sua aprovação hoje.
 - Micro-texto abaixo do CTA: Saia do ciclo eterno de cursinhos e entre em um plano estratégico que te conduz até a posse.
 
