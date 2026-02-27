@@ -78,8 +78,14 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- intl-tel-input -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
+
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // AOS init
@@ -163,7 +169,7 @@
                 <a href="#metodo" class="header__link">Método</a>
                 <a href="#bonus" class="header__link">Bônus</a>
                 <a href="#faq" class="header__link">FAQ</a>
-                <a href="https://pay.hotmart.com/Q100171412O" class="header__cta">Começar agora</a>
+                <a href="#preco" class="header__cta">Começar agora</a>
             </nav>
 
             <button class="header__toggle" aria-label="Menu">
@@ -176,18 +182,20 @@
 
     <main>
 
+
         <!-- ==================== HERO ==================== -->
-        <section class="hero" style="min-height: 80vh;">
+        <section class="hero">
             <div class="hero__grain"></div>
 
             <div class="container">
 
                 <!-- Lado esquerdo: Copy principal -->
                 <div class="hero__content">
-                    <div class="hero__tag">Magistratura + ENAM</div>
+                    <div class="hero__tag">MAGIS + ENAM ATÉ A APROVAÇÃO</div>
 
                     <h1 class="hero__headline">
-                        Passe na Magistratura e no ENAM com um <em>plano estruturado</em> até a sua aprovação
+                        Passe na Magistratura e no ENAM com um <strong>plano estruturado</strong> até a sua aprovação —
+                        mesmo que hoje você esteja perdido, atrasado ou recomeçando.
                     </h1>
 
                     <p class="hero__sub">
@@ -196,8 +204,8 @@
                     </p>
 
                     <div class="hero__cta-group">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
-                            Clique aqui e organize sua aprovação hoje
+                        <a href="#preco" class="btn-primary">
+                            Clique no botão abaixo e organize sua aprovação hoje
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -205,129 +213,222 @@
                             </svg>
                         </a>
                         <span class="hero__micro">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Saia do ciclo eterno de cursinhos e entre em um plano estratégico.
+                            Saia do ciclo eterno de cursinhos e entre em um plano estratégico que te conduz até a posse.
                         </span>
                     </div>
                 </div>
 
-                <!-- Lado direito: Stats/Badges -->
+                <!-- Lado direito: Elementos Visuais Abstratos -->
                 <div class="hero__aside">
-                    <div class="hero__stats">
-
-                        <div class="stat-card">
-                            <span class="stat-card__value">4h/dia</span>
-                            <span class="stat-card__label">Estudo medio diario</span>
-                            <p class="stat-card__desc">Rotina realista para quem trabalha e estuda. Sem excessos, sem
-                                improviso.</p>
-                        </div>
-
-                        <div class="stat-card">
-                            <span class="stat-card__value">100%</span>
-                            <span class="stat-card__label">Direcionado ao edital</span>
-                            <p class="stat-card__desc">Foco total no que realmente cai na prova. Cada minuto conta.</p>
-                        </div>
-
-                        <div class="stat-card">
-                            <span class="stat-card__value">365 dias</span>
-                            <span class="stat-card__label">Acesso completo</span>
-                            <p class="stat-card__desc">1 ano inteiro de plataforma com atualizacoes continuas.</p>
-                        </div>
-
+                    <div class="hero__visual">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
                     </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== VSL ==================== -->
+        <section class="vsl">
+            <div class="container" data-aos="fade-up">
+
+                <h2 class="vsl__title">Veja como o Sistema IRD vai transformar sua preparação</h2>
+
+                <div class="vsl__frame-container" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="vsl__frame">
+                        <div class="vsl__video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/0dmRcHqYXQY?rel=0&showinfo=0"
+                                title="Sistema IRD - Apresentação" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__cta-group"
+                    style="align-items: center; justify-content: center; margin-top: 40px; text-align: center;">
+                    <a href="#preco" class="btn-primary" style="margin: 0 auto;">
+                        Quero começar minha preparação estratégica agora
+                    </a>
                 </div>
 
             </div>
         </section>
 
         <!-- ==================== O PROBLEMA ==================== -->
-        <section id="problema" class="cronograma">
+        <section id="problema" class="problema">
             <div class="container">
 
-                <div class="cronograma__header" data-aos="fade-up">
+                <div class="problema__header" data-aos="fade-up">
                     <div class="section-tag">O Problema</div>
-                    <h2 class="cronograma__title">O problema não é falta de inteligência.</h2>
-                    <p class="cronograma__subtitle">É falta de direção estratégica. A maioria dos concurseiros nunca
-                        constrói base sólida. Eles sobrevivem de urgência. E prova de alto nível não premia urgência.
-                        Premia consistência estruturada.</p>
+                    <h2 class="problema__title">O problema não é falta de inteligência.</h2>
+                    <h3 class="problema__subtitle">É falta de direção estratégica.</h3>
                 </div>
 
-                <div class="cronograma__grid">
-                    <div class="benefit-card" data-aos="fade-up">
-                        <h3 class="benefit-card__title">Você se identifica?</h3>
-                        <ul class="publico__list" style="margin-top: 20px;">
-                            <li><span>Estuda por edital aberto.</span></li>
-                            <li><span>Vive de reta final.</span></li>
-                            <li><span>Troca de cursinho em cursinho.</span></li>
-                            <li><span>Assiste aula, mas não retém o conteúdo.</span></li>
-                            <li><span>Sempre fica travado nos 60%.</span></li>
-                        </ul>
+                <div class="problema__bento">
+                    <!-- Card 1 (2x2) -->
+                    <div class="bento-card bento-card--large" data-aos="fade-up">
+                        <div class="bento-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 9v3.75m9-.75a9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <h4 class="bento-card__title">Estuda por edital aberto.</h4>
+                        <p class="bento-card__desc">A urgência do edital impede a construção de uma base sólida. Você
+                            corre contra o tempo e acaba negligenciando o que realmente importa.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="bento-card__title">Vive de reta final.</h4>
+                        <p class="bento-card__desc">Sobrevivendo de revisões superficiais que não garantem retenção a
+                            longo prazo.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="bento-card__title">Troca de cursinho.</h4>
+                        <p class="bento-card__desc">Busca a "fórmula mágica" em novos materiais sem nunca concluir o que
+                            começou.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="bento-card__title">Assiste aula, mas não retém.</h4>
+                        <p class="bento-card__desc">Estudo passivo que gera uma falsa sensação de aprendizagem.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="bento-card__title">Fica nos 60%.</h4>
+                        <p class="bento-card__desc">O platô que frustra quem se esforça mas não tem estratégia para o
+                            corte.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== SISTEMA IRD ==================== -->
-        <section id="metodo" class="metodologia">
+        <!-- ==================== MECANISMO ÚNICO (SISTEMA IRD) ==================== -->
+        <section id="metodo" class="mecanismo">
             <div class="container">
-                <div class="metodologia__content" data-aos="fade-up">
-                    <div class="section-tag">Mecanismo Único</div>
-                    <h2 class="metodologia__title">Sistema IRD de Aprovação Estruturada</h2>
-                    <p class="metodologia__subtitle">Não é apenas uma "plataforma", é o seu diferencial estratégico.
-                        Você entra sem organização e sai com um plano semanal claro do que estudar, revisar e testar.
-                    </p>
-
-                    <div class="hero__cta-group" style="margin-top: 30px;">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary">
-                            Quero meu plano estratégico
-                        </a>
+                <div class="mecanismo__grid">
+                    <!-- Lado Esquerdo: Card Stack -->
+                    <div class="mecanismo__visual">
+                        <div class="card-stack">
+                            <div class="stack-card stack-card--1" data-aos="fade-right">
+                                <span class="stack-card__tag">Estratégia</span>
+                                <h4 class="stack-card__title">Cronogramas por Fase</h4>
+                            </div>
+                            <div class="stack-card stack-card--2" data-aos="fade-right" data-aos-delay="100">
+                                <span class="stack-card__tag">Material</span>
+                                <h4 class="stack-card__title">PDFs Diretos</h4>
+                            </div>
+                            <div class="stack-card stack-card--3" data-aos="fade-right" data-aos-delay="200">
+                                <span class="stack-card__tag">Análise</span>
+                                <h4 class="stack-card__title">Diagnóstico 360°</h4>
+                            </div>
+                            <div class="pulse-ring"></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="metodologia__tools">
-                    <div class="tool-card" data-aos="fade-up">
-                        <div class="tool-card__body">
-                            <h3 class="tool-card__title">Diferenciais Estratégicos</h3>
-                            <ul class="publico__list" style="margin-top: 20px;">
-                                <li><span>Autoanálise inicial e Cronograma por fase</span></li>
-                                <li><span>PDF direto ao ponto e Jurisprudência aplicada</span></li>
-                                <li><span>Revisão cíclica e Diagnóstico por disciplina</span></li>
-                                <li><span>Bateria direcionada ENAM/FGV</span></li>
-                            </ul>
+                    <!-- Lado Direito: Texto Explicativo -->
+                    <div class="mecanismo__content" data-aos="fade-left">
+                        <div class="section-tag">Mecanismo Único</div>
+                        <h2 class="mecanismo__title">Sistema IRD de Aprovação Estruturada</h2>
+                        <p class="mecanismo__subtitle">Não é apenas uma "plataforma", é o seu diferencial estratégico. A
+                            engrenagem que transforma o caos em um plano semanal claro.
+                        </p>
+
+                        <div class="mecanismo__features">
+                            <div class="m-feature">
+                                <span class="m-feature__icon">✓</span>
+                                <div>
+                                    <h5 class="m-feature__title">Autoanálise Inicial</h5>
+                                    <p class="m-feature__text">Identificamos suas lacunas antes mesmo do primeiro dia de
+                                        estudo.</p>
+                                </div>
+                            </div>
+                            <div class="m-feature">
+                                <span class="m-feature__icon">✓</span>
+                                <div>
+                                    <h5 class="m-feature__title">Revisão Cíclica</h5>
+                                    <p class="m-feature__text">O conteúdo estudado hoje não será esquecido amanhã.
+                                        Estratégia de repetição espaçada.</p>
+                                </div>
+                            </div>
+                            <div class="m-feature">
+                                <span class="m-feature__icon">✓</span>
+                                <div>
+                                    <h5 class="m-feature__title">Jurisprudência Aplicada</h5>
+                                    <p class="m-feature__text">Foco total no que os tribunais estão decidindo agora, do
+                                        jeito que cai na prova.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero__cta-group" style="margin-top: 40px;">
+                            <a href="#preco" class="btn-primary">
+                                Quero meu plano estratégico
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== COMO FUNCIONA ==================== -->
-        <section class="pilares" style="background: var(--bg-primary);">
+        <!-- ==================== COMO FUNCIONA (4 PASSOS) ==================== -->
+        <section class="passos">
             <div class="container">
-                <div class="pilares__header" data-aos="fade-up">
+                <div class="passos__header" data-aos="fade-up">
                     <div class="section-tag">Como Funciona</div>
-                    <h2 class="pilares__title">Sua jornada em 4 passos</h2>
+                    <h2 class="passos__title">Sua jornada até a posse em 4 passos</h2>
                 </div>
 
-                <div class="pilares__grid">
-                    <div class="pilar-item" data-aos="fade-up">
-                        <span class="pilar-item__number">01</span>
-                        <span class="pilar-item__name">Diagnóstico</span>
+                <div class="passos__grid">
+                    <!-- Passo 1 -->
+                    <div class="passo-item" data-aos="fade-up">
+                        <span class="passo-item__bg-number">01</span>
+                        <div class="passo-item__content">
+                            <h4 class="passo-item__title">Diagnóstico</h4>
+                            <p class="passo-item__text">Análise profunda do seu nível atual por disciplina para
+                                identificar onde você está perdendo pontos.</p>
+                        </div>
                     </div>
-                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="100">
-                        <span class="pilar-item__number">02</span>
-                        <span class="pilar-item__name">Organização da fase</span>
+
+                    <!-- Passo 2 -->
+                    <div class="passo-item" data-aos="fade-up" data-aos-delay="100">
+                        <span class="passo-item__bg-number">02</span>
+                        <div class="passo-item__content">
+                            <h4 class="passo-item__title">Organização da fase</h4>
+                            <p class="passo-item__text">Montagem do seu cronograma estratégico baseado no seu
+                                diagnóstico e tempo disponível.</p>
+                        </div>
                     </div>
-                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="200">
-                        <span class="pilar-item__number">03</span>
-                        <span class="pilar-item__name">Execução com revisão</span>
+
+                    <!-- Passo 3 -->
+                    <div class="passo-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="passo-item__bg-number">03</span>
+                        <div class="passo-item__content">
+                            <h4 class="passo-item__title">Execução com revisão</h4>
+                            <p class="passo-item__text">Estudo prático com PDFs objetivos e nosso sistema de revisão
+                                cíclica para máxima retenção.</p>
+                        </div>
                     </div>
-                    <div class="pilar-item" data-aos="fade-up" data-aos-delay="300">
-                        <span class="pilar-item__number">04</span>
-                        <span class="pilar-item__name">Ajustes estratégicos</span>
+
+                    <!-- Passo 4 -->
+                    <div class="passo-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="passo-item__bg-number">04</span>
+                        <div class="passo-item__content">
+                            <h4 class="passo-item__title">Ajustes estratégicos</h4>
+                            <p class="passo-item__text">Acompanhamento contínuo e ajustes na rota até você atingir a
+                                nota de corte.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -388,7 +489,7 @@
 
                     <div class="bonus__card">
                         <div class="bonus__highlight">
-                            <span class="bonus__counter" data-target="12">0</span>
+                            <span class="bonus__counter" data-target="12">12</span>
                             <span class="bonus__unit">meses</span>
                             <div class="bonus__highlight-sub">extras para as proximas fases</div>
                         </div>
@@ -401,132 +502,100 @@
             </div>
         </section>
 
-        <!-- ==================== PRECO ==================== -->
-        <section id="preco" class="preco">
+        <!-- ==================== OFERTA (SPOTLIGHT) ==================== -->
+        <section id="preco" class="oferta">
             <div class="container">
-
-                <div class="preco__header" data-aos="fade-up">
-                    <div class="section-tag">Investimento</div>
-                    <h2 class="preco__title">O que você recebe na sua preparação completa</h2>
+                <div class="oferta__header" data-aos="fade-up">
+                    <div class="section-tag">Acesso Imediato</div>
+                    <h2 class="oferta__title">O que você recebe na sua preparação completa</h2>
+                    <p class="oferta__subtitle">A estrutura definitiva para quem não quer perder tempo e focar no que
+                        realmente cai.</p>
                 </div>
 
-                <div class="preco__card" data-aos="fade-up">
-                    <div class="preco__value-box">
-                        <span class="preco__currency">R$</span>
-                        <span class="preco__amount" id="price-counter" data-target="2410">0</span>
-                        <span class="preco__suffix">à vista</span>
+                <div class="oferta__card" data-aos="zoom-in">
+                    <div class="oferta__grid">
+                        <div class="oferta__info">
+                            <ul class="oferta__list">
+                                <li><span>Cronogramas extensivo, intensivo e reta final</span></li>
+                                <li><span>PDFs objetivos e Jurisprudência selecionada</span></li>
+                                <li><span>Sistema de revisão estruturada</span></li>
+                                <li><span>Diagnóstico por disciplina e Bateria ENAM/FGV</span></li>
+                                <li><span>Onboarding com Anjo + Suporte dedicado</span></li>
+                                <li><span>Acesso contínuo até a aprovação</span></li>
+                            </ul>
+                        </div>
+                        <div class="oferta__price">
+                            <div class="price-box">
+                                <span class="price-label">Investimento</span>
+                                <div class="price-main">
+                                    <span class="price-currency">R$</span>
+                                    <span class="price-value" id="price-counter" data-target="2410">2.410</span>
+                                    <span class="price-suffix">à vista</span>
+                                </div>
+                                <div class="price-installments">ou 12x de <strong>R$ 249,25</strong></div>
+                                <a href="javascript:void(0)" class="btn-primary oferta__cta js-open-checkout">
+                                    Quero Garantir Minha Vaga
+                                </a>
+                                <p class="oferta__micro">Pagamento seguro via Hotmart</p>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="preco__installment">
-                        ou 12x de <span class="preco__installment-value">R$ 249,25</span>
-                    </div>
-
-                    <div class="preco__features">
-                        <div class="feature-item">
-                            <span>Cronograma extensivo, intensivo e reta final</span>
-                        </div>
-                        <div class="feature-item">
-                            <span>PDFs objetivos e Jurisprudência selecionada</span>
-                        </div>
-                        <div class="feature-item">
-                            <span>Sistema de revisão estruturada e Diagnóstico por disciplina</span>
-                        </div>
-                        <div class="feature-item">
-                            <span>Bateria ENAM/FGV e Onboarding com Anjo</span>
-                        </div>
-                        <div class="feature-item">
-                            <span>Atualizações contínuas e Acesso até aprovação</span>
-                        </div>
-                    </div>
-
-                    <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary preco__cta">
-                        Começar agora
-                    </a>
-
-                    <span class="preco__micro">
-                        Garantia: Se você executar o método e não evoluir, nós reorganizamos sua estratégia.
-                    </span>
                 </div>
-
             </div>
         </section>
 
         </div>
         </section>
 
-        <!-- ==================== PARA QUEM É ==================== -->
-        <section class="publico">
-            <div class="container">
-                <div class="publico__header" data-aos="fade-up">
-                    <div class="section-tag">Público-alvo</div>
-                    <h2 class="publico__title">Este curso é para você?</h2>
-                </div>
-
-                <div class="publico__grid">
-
-                    <!-- Lado Positivo -->
-                    <div class="publico__card publico__card--sim" data-aos="fade-right">
-                        <h3 class="publico__card-heading">É para você se...</h3>
-                        <ul class="publico__list">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Quem saiu da faculdade e não sabe por onde começar.</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Quem estuda há anos e não passa dos 60%.</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Quem quer parar de depender de reta final.</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                </svg>
-                                <span>Quem quer aprovação como projeto sério.</span>
-                            </li>
-                        </ul>
+        <!-- ==================== PARA QUEM É (SPLIT VERTICAL) ==================== -->
+        <section class="qualificacao">
+            <div class="container--full">
+                <div class="qualificacao__grid">
+                    <!-- Lado Sim -->
+                    <div class="qualificacao__side qualificacao__side--sim" data-aos="fade-right">
+                        <div class="qualificacao__inner">
+                            <h3 class="qualificacao__title">Este projeto é para você se...</h3>
+                            <ul class="qualificacao__list">
+                                <li>
+                                    <span class="q-icon">✓</span>
+                                    <span>Recém-formado ou no início da jornada que não sabe por onde começar.</span>
+                                </li>
+                                <li>
+                                    <span class="q-icon">✓</span>
+                                    <span>Estagnado nos 60% e precisa de estratégia para romper o platô.</span>
+                                </li>
+                                <li>
+                                    <span class="q-icon">✓</span>
+                                    <span>Cansado de depender apenas de "reta final" e quer uma base sólida.</span>
+                                </li>
+                                <li>
+                                    <span class="q-icon">✓</span>
+                                    <span>Encara a aprovação como um projeto sério de vida.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Lado Negativo -->
-                    <div class="publico__card publico__card--nao" data-aos="fade-left">
-                        <h3 class="publico__card-heading">Não é para você se...</h3>
-                        <ul class="publico__list">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span>Para quem quer videoaula infinita.</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span>Para quem quer estudar só quando sai edital.</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span>Para quem procura fórmula mágica.</span>
-                            </li>
-                        </ul>
+                    <!-- Lado Não -->
+                    <div class="qualificacao__side qualificacao__side--nao" data-aos="fade-left">
+                        <div class="qualificacao__inner">
+                            <h3 class="qualificacao__title">NÃO é para você se...</h3>
+                            <ul class="qualificacao__list">
+                                <li>
+                                    <span class="q-icon">✕</span>
+                                    <span>Procura por videoaulas infinitas sem estudo ativo.</span>
+                                </li>
+                                <li>
+                                    <span class="q-icon">✕</span>
+                                    <span>Prefere estudar apenas quando o edital é publicado.</span>
+                                </li>
+                                <li>
+                                    <span class="q-icon">✕</span>
+                                    <span>Está em busca de uma "fórmula mágica" para a posse.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -544,7 +613,7 @@
                         sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.</p>
 
                     <div class="cta-final__actions" data-aos="fade-up" data-aos-delay="200">
-                        <a href="https://pay.hotmart.com/Q100171412O" class="btn-primary cta-final__btn">
+                        <a href="#preco" class="btn-primary cta-final__btn">
                             Entrar agora na Plataforma IRD - ENAM 2026.1
                         </a>
                     </div>
@@ -573,161 +642,318 @@
                         </div>
                     </div>
                 </div>
+        </section>
 
+        <!-- ==================== GARANTIA (MINIMALIST) ==================== -->
+        <section class="garantia">
+            <div class="container">
+                <div class="garantia__box" data-aos="zoom-in">
+                    <div class="garantia__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h2 class="garantia__title">Garantia IRD de Evolução</h2>
+                    <p class="garantia__text">Além da garantia incondicional de 7 dias, assumimos o compromisso com o
+                        seu resultado. <strong>Se você executar o método e não evoluir nos seus simulados</strong>, nós
+                        reorganizamos sua estratégia pessoalmente até você atingir o próximo nível.</p>
+                </div>
             </div>
         </section>
 
-        <!-- ==================== FAQ ==================== -->
+        <!-- ==================== FAQ (ACCORDION) ==================== -->
         <section id="faq" class="faq">
             <div class="container">
-
                 <div class="faq__header" data-aos="fade-up">
-                    <div class="section-tag">Dúvidas Frequentes</div>
-                    <h2 class="faq__title">Perguntas frequentes</h2>
+                    <div class="section-tag">Dúvida frequentes</div>
+                    <h2 class="faq__title">FAQ</h2>
                 </div>
 
-                <div class="faq__accordion">
-
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>Qual a carga horária de estudo recomendada?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>O cronograma foi pensado para uma média de 4 horas de estudo diário, mas pode ser
-                                adaptado à sua realidade. O importante é a constância e seguir o plano de forma
-                                organizada.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>O curso é atualizado conforme mudanças no edital?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>Sim. A plataforma é constantemente atualizada com base nas mudanças de edital,
-                                jurisprudência e tendências da banca. Você sempre terá acesso ao conteúdo mais
-                                relevante.</p>
+                <div class="faq__grid">
+                    <div class="faq-item" data-aos="fade-up">
+                        <button class="faq-item__question">
+                            <span>Como recebo o acesso ao material?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>O acesso é imediato após a confirmação do pagamento. Você receberá um e-mail com
+                                    todas
+                                    as instruções para acessar a nossa plataforma exclusiva.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>Sou iniciante, esse curso é para mim?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>Com certeza. O cronograma começa do básico e evolui de forma progressiva. Você não
-                                precisa de conhecimento prévio -- o método te guia do zero até a prova.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>Consigo conciliar com trabalho?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de ~4h
-                                diárias pode ser distribuído ao longo do dia conforme sua rotina.</p>
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <button class="faq-item__question">
+                            <span>O conteúdo serve para ENAM?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Sim! Temos módulos específicos e baterias de questões direcionadas para o ENAM e para
+                                    a banca FGV.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>Como funciona o acesso até a aprovação?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>Ao contrário de outras plataformas com tempo fixo, o IRD oferece acesso contínuo e
-                                acompanhamento até que você atinja o seu objetivo. Nós acompanhamos a evolução da sua
-                                carreira.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq__item" data-aos="fade-up">
-                        <div class="faq__question">
-                            <span>Posso acessar pelo celular?</span>
-                            <div class="faq__icon"></div>
-                        </div>
-                        <div class="faq__answer">
-                            <p>Sim. A plataforma é 100% responsiva e funciona perfeitamente em celulares, tablets e
-                                computadores. Estude de onde você estiver.</p>
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <button class="faq-item__question">
+                            <span>É necessário algum material complementar?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Não. O Sistema IRD é completo, com cronogramas, PDFs objetivos e acompanhamento. Você
+                                    tem tudo o que precisa em um só lugar.</p>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                        <button class="faq-item__question">
+                            <span>Até quando tenho acesso ao curso?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>O acesso é contínuo até a sua aprovação. Estamos comprometidos com o seu resultado a
+                                    longo prazo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- ==================== FOOTER ==================== -->
-        <footer class="footer">
-            <div class="container">
-
-                <div class="footer__top">
-                    <div class="footer__brand">
-                        <a href="#" class="footer__logo">Plataforma <span>IRD</span></a>
-                        <p class="footer__description">A plataforma de estudos que te leva do início até a aprovação na
-                            Magistratura e no ENAM. Estudo organizado, estratégico e direcionado.</p>
-                    </div>
-
-                    <div class="footer__nav">
-                        <h4 class="footer__title">Links</h4>
-                        <ul class="footer__links">
-                            <li><a href="#problema">O Problema</a></li>
-                            <li><a href="#metodo">Método</a></li>
-                            <li><a href="#preco">Bônus</a></li>
-                            <li><a href="#faq">FAQ</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer__contact">
-                        <h4 class="footer__title">Contatos</h4>
-                        <ul class="footer__contacts">
-                            <li>suporte@institutoird.com</li>
-                            <li>(67) 99906-2339</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer__bottom">
-                    <p class="footer__copyright">© 2026 Plataforma IRD. Todos os direitos reservados | Termos de Uso |
-                        Política de Privacidade</p>
-                </div>
-
-            </div>
-        </footer>
-
-        <!-- Script Accordion -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const faqQuestions = document.querySelectorAll('.faq__question');
-
-                faqQuestions.forEach(question => {
-                    question.addEventListener('click', () => {
-                        const item = question.parentElement;
-                        const isActive = item.classList.contains('active');
-
-                        // Fecha todos os outros
-                        document.querySelectorAll('.faq__item').forEach(otherItem => {
-                            otherItem.classList.remove('active');
-                            otherItem.querySelector('.faq__answer').style.maxHeight = null;
-                        });
-
-                        // Abre o atual se nao estava ativo
-                        if (!isActive) {
-                            item.classList.add('active');
-                            const answer = item.querySelector('.faq__answer');
-                            answer.style.maxHeight = answer.scrollHeight + "px";
-                        }
-                    });
-                });
-            });
-        </script>
 
     </main>
 
+    <!-- ==================== FOOTER (CORPORATE MINIMAL) ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="header__logo">Plataforma <span>IRD</span></a>
+                    <p class="footer__tagline">Estratégia Definitiva para sua Aprovação.</p>
+                </div>
+                <div class="footer__social">
+                    <a href="https://instagram.com" target="_blank" class="footer__social-link">Instagram</a>
+                    <a href="https://youtube.com" target="_blank" class="footer__social-link">YouTube</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Instituto IRD. Todos os direitos reservados.
+                    <a href="/termos">Termos de Uso</a> |
+                    <a href="/privacidade">Política de Privacidade</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-item__question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Fecha todos os outros
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // Abre o atual se não estava ativo
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- MODAL DE CHECKOUT -->
+    <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Finalizar Inscrição">
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="close-modal" aria-label="Fechar">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Quase lá!</h2>
+                <p class="modal-subtitle">Preencha seus dados para prosseguir para o pagamento seguro.</p>
+            </div>
+
+            <form name="lead-checkout" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form
+                id="checkout-form">
+                <input type="hidden" name="form-name" value="lead-checkout">
+                <p hidden><label>Nao preencha: <input name="bot-field"></label></p>
+
+                <!-- UTMs -->
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="utm_term" id="utm_term">
+                <input type="hidden" name="utm_content" id="utm_content">
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-nome">Nome Completo</label>
+                    <input type="text" id="modal-nome" name="nome" class="form-input" placeholder="Seu nome completo"
+                        required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-email">E-mail</label>
+                    <input type="email" id="modal-email" name="email" class="form-input" placeholder="seu@email.com"
+                        required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="modal-telefone">WhatsApp</label>
+                    <input type="tel" id="modal-telefone" name="telefone" class="form-input" required
+                        autocomplete="tel">
+                </div>
+
+                <div class="form-feedback"></div>
+
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; justify-content: center; margin-top: 20px;">
+                    Ir para o Pagamento Seguro
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" style="width: 18px; margin-left: 8px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+
+                <p class="modal-security">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" style="width: 12px; margin-right: 4px;">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                    Ambiente 100% Seguro e Criptografado
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // UTM Management
+        function saveUTMs() {
+            const params = new URLSearchParams(window.location.search);
+            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+            utms.forEach(utm => {
+                const value = params.get(utm);
+                if (value) localStorage.setItem(utm, value);
+            });
+        }
+
+        function fillUTMs() {
+            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+            utms.forEach(utm => {
+                const value = localStorage.getItem(utm);
+                const el = document.getElementById(utm);
+                if (value && el) el.value = value;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            saveUTMs();
+            fillUTMs();
+
+            // Modal Logic
+            const modal = document.getElementById('checkout-modal');
+            const openBtns = document.querySelectorAll('.js-open-checkout');
+            const closeBtn = document.getElementById('close-modal');
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            openBtns.forEach(btn => btn.addEventListener('click', openModal));
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+            // intl-tel-input
+            const phoneInput = document.getElementById('modal-telefone');
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: 'br',
+                preferredCountries: ['br', 'us', 'pt'],
+                separateDialCode: true,
+                autoPlaceholder: 'polite',
+                strictMode: true,
+                loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js'
+            });
+
+            // Form Submit
+            const form = document.getElementById('checkout-form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!iti.isValidNumber()) {
+                    alert('Por favor, insira um número de WhatsApp válido.');
+                    return;
+                }
+
+                const formData = new FormData(form);
+                const name = formData.get('nome');
+                const email = formData.get('email');
+                const phone = iti.getNumber();
+
+                // Botão loading state
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = 'Processando...';
+
+                // Enviar para Netlify
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                    .then(() => {
+                        // Track lead (Meta Pixel)
+                        if (window.fbq) {
+                            fbq('track', 'Lead', {
+                                content_name: 'Checkout Plataforma IRD',
+                                value: 2410.00,
+                                currency: 'BRL'
+                            });
+                        }
+
+                        // Redirecionar para Hotmart
+                        const hotmartUrl = new URL('https://pay.hotmart.com/L85860528K');
+                        hotmartUrl.searchParams.set('bid', '1772194525196');
+                        hotmartUrl.searchParams.set('name', name);
+                        hotmartUrl.searchParams.set('email', email);
+                        hotmartUrl.searchParams.set('phone', phone);
+
+                        // Add UTMs to redirect
+                        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(utm => {
+                            const val = localStorage.getItem(utm);
+                            if (val) hotmartUrl.searchParams.set(utm, val);
+                        });
+
+                        window.location.href = hotmartUrl.toString();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        btn.disabled = false;
+                        btn.innerHTML = originalText;
+                        alert('Ocorreu um erro. Por favor, tente novamente.');
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
