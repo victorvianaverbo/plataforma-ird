@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo view victorvianaverbo/medsimpledash --json description,defaultBranchRef,languages,repositoryTopics)",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/git/trees/main?recursive=1 --jq '.tree[].path')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/pages/Dashboard.tsx --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/components/dashboard/StatsCards.tsx --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/components/dashboard/DailyLeadsChart.tsx --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/components/dashboard/PlatformCards.tsx --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/App.tsx --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/src/index.css --jq '.content')",
+      "Bash(gh api repos/victorvianaverbo/medsimpledash/contents/package.json --jq '.content')"
+    ]
+  }
+}

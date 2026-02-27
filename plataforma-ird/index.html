@@ -19,6 +19,50 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
+    <!-- Meta Pixel Code -->
+    <script>
+        // Lógica para CAPI (Deduplicação e Matching)
+        function getExternalId() {
+            let id = localStorage.getItem('meta_ext_id');
+            if (!id) {
+                id = 'ext_' + Math.random().toString(36).substr(2, 9) + Date.now();
+                localStorage.setItem('meta_ext_id', id);
+            }
+            return id;
+        }
+
+        const external_id = getExternalId();
+        const page_view_id = 'pv_' + Math.random().toString(36).substr(2, 9) + Date.now();
+
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1026349941870089', { external_id: external_id });
+        fbq('track', 'PageView', {}, { eventID: page_view_id });
+
+        // Enviar para CAPI (Netlify Function)
+        fetch('/.netlify/functions/capi', {
+            method: 'POST',
+            body: JSON.stringify({
+                event_name: 'PageView',
+                event_id: page_view_id,
+                user_data: { external_id: external_id }
+            })
+        }).catch(err => console.error('CAPI fetch error:', err));
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- FONTS: DM Serif Display + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +103,6 @@
                 }, { passive: true });
             }
 
-            // Mobile menu
-            var toggle = document.querySelector('.header__toggle');
-            var nav = document.querySelector('.header__nav');
             if (toggle && nav) {
                 toggle.addEventListener('click', function () {
                     nav.classList.toggle('active');
