@@ -19,6 +19,14 @@
 
 ---
 
+## Seção: VSL (Vídeo de Vendas)
+
+- Título: Veja como o Sistema IRD vai transformar sua preparação
+- Vídeo: https://youtu.be/0dmRcHqYXQY
+- CTA: Quero começar minha preparação estratégica agora
+
+---
+
 ## Seção: O Problema (Agitação)
 
 - Título: O problema não é falta de inteligência.
