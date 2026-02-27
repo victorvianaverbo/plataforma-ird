@@ -144,6 +144,50 @@ transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1)
 
 ---
 
+## Secao 1.5: VSL (Video Sales Letter)
+
+### Arquetipo e Constraints
+- Arquetipo: Single Focus (Foco Absoluto)
+- Constraints: Glassmorphism (Efeitos Especiais), Hover Glow (Interacao), Fade Up (Movimento)
+- Justificativa: O vídeo é o elemento central de conversão. O arquétipo de foco único elimina distrações, enquanto o glassmorphism no frame do vídeo confere um aspecto premium.
+
+### Conteudo
+- Titulo: "Veja como o Sistema IRD vai transformar sua preparacao"
+- Video ID: 0dmRcHqYXQY (YouTube)
+- CTA: "Quero comecar minha preparacao estrategica agora"
+
+### Layout
+- `padding: var(--section-padding) 0`
+- Container narrow: `max-width: 900px` (focado no video)
+- Video Aspect Ratio: `16/9`
+- Frame: `border-radius: 24px; padding: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle)`
+
+### Tipografia
+- Titulo: DM Serif Display, `clamp(2rem, 3.5vw, 2.75rem)`, text-align: center, margin-bottom: 40px
+- CTA: Padrao btn-primary, centralizado
+
+### Cores
+- Fundo: `--bg-primary`
+- Frame: `rgba(255, 255, 255, 0.03)` com `backdrop-filter: blur(10px)`
+- Border: `var(--border-gold)`
+
+### Elementos Visuais
+- Youtube Iframe responsivo
+- Play button customizado (opcional, ou apenas o embed limpo)
+- Sombra projetada: `0 30px 60px rgba(0, 0, 0, 0.5)`
+
+### Animacoes
+- Container: `data-aos="fade-up"`
+- Hover no frame: `box-shadow: 0 0 50px rgba(201, 168, 76, 0.2)`
+
+### Interatividade
+- Hover no frame do vídeo causa leve escala `1.01` e brilho.
+
+### Responsividade
+- <= 768px: Título menor, padding lateral reduzido.
+
+---
+
 ## Secao 2: Cronograma (APROVADO)
 
 ### Arquetipo e Constraints
