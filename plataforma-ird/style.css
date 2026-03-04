@@ -240,24 +240,33 @@ ul {
 
 @media (max-width: 600px) {
     .header {
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     .header.is-active {
-        padding: 8px 0;
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 
     .logo {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .header .btn {
-        padding: 8px 12px;
-        font-size: 0.6rem;
-        letter-spacing: 0.01em;
-        white-space: nowrap;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+        white-space: nowrap !important;
         height: auto;
         min-height: 0;
+        display: block;
+        text-align: center;
     }
 }
 
@@ -683,8 +692,13 @@ ul {
         top: 0;
     }
 
+    .passos {
+        padding: 60px 0;
+        /* Reduzido de 160px */
+    }
+
     .passos__content {
-        padding-top: 40px;
+        padding-top: 20px;
         padding-bottom: 0px;
     }
 
