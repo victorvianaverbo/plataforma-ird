@@ -4,3 +4,8 @@
 
 [functions]
   directory = "plataforma-ird/netlify/functions"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
