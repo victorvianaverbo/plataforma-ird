@@ -12,8 +12,8 @@
 
 ## Hero
 
-- Headline: Passe na Magistratura e no ENAM com um plano estruturado até a sua aprovação — mesmo que hoje você esteja perdido, atrasado ou recomeçando.
-- Subheadline: Cronograma pronto + PDFs objetivos + Revisão estruturada + Diagnóstico por disciplina — acesso contínuo até a aprovação.
+- Headline: Seja aprovado no ENAM E MAGISTRATURA 
+- Subheadline: Com um plano estruturado até a sua aprovação — mesmo que hoje você esteja iniciando, perdido, atrasado ou recomeçando.
 - CTA: Clique no botão abaixo e organize sua aprovação hoje.
 - Micro-texto abaixo do CTA: Saia do ciclo eterno de cursinhos e entre em um plano estratégico que te conduz até a posse.
 
@@ -66,7 +66,7 @@
 - Passo 1: Diagnóstico
 - Passo 2: Organização da fase
 - Passo 3: Execução com revisão estruturada
-- Passo 4: Ajustes estratégicos até o corte
+- Passo 4: Acompanhamento contínuo com um anjo ajustando a rota junto com você até a sua aprovação.
 
 ---
 
@@ -87,7 +87,7 @@
 
 ---
 
-## Seção: Oferta (Magis + ENAM até a aprovação)
+## Seção: Oferta (ENAM + Reta final + Magis até a sua APROVAÇÃO)
 
 - Título: O que você recebe na sua preparação completa
 - Itens inclusos:
@@ -99,11 +99,21 @@
   - Bateria ENAM/FGV
   - Onboarding com Anjo da Plataforma
   - Atualizações contínuas
-  - Acesso contínuo até aprovação.
+  - Acesso contínuo até a aprovação.
 
 - Preço:
   - 12x R$ 249,25
   - ou R$ 2.410 à vista
+
+---
+
+## Seção: Bonus Exclusivo
+
+- Título: Bonus exclusivo para quem comprar hoje
+- Itens:
+  - Juriz IA — Nossa ferramenta de consulta rápida às jurisprudências.
+  - Após a sua aprovação na primeira fase, você recebe +1 ano de acesso às aulas de sentença.
+- Destaque: Acesso até a sua aprovação.
 
 ---
 
@@ -126,7 +136,7 @@
   Sim. A plataforma é constantemente atualizada com base nas mudanças de edital, jurisprudência e tendências da banca. Você sempre terá acesso ao conteúdo mais relevante.
 
 - **Sou iniciante, esse curso é para mim?**
-  Com certeza. O cronograma começa do básico e evolui de forma progressiva. Você não precisa de conhecimento prévio -- o método te guia do zero até a prova.
+  Com certeza. O cronograma começa do básico e evolui de forma progressiva. Você não precisa de conhecimento prévio — o método te guia do zero até a prova.
 
 - **Consigo conciliar com trabalho?**
   Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de ~4h diárias pode ser distribuído ao longo do dia conforme sua rotina.
