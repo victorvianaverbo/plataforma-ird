@@ -238,6 +238,27 @@ ul {
     }
 }
 
+@media (max-width: 600px) {
+    .header {
+        padding: 12px 0;
+    }
+
+    .header.is-active {
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .header .btn {
+        padding: 10px 16px;
+        font-size: 0.7rem;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+}
+
 /* ==========================================
    SEÇÃO 2: HERO (Type/Divider Hero)
    ========================================== */
