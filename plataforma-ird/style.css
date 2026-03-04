@@ -238,6 +238,29 @@ ul {
     }
 }
 
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 0;
+    }
+
+    .header.is-active {
+        padding: 8px 0;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .header .btn {
+        padding: 8px 12px;
+        font-size: 0.6rem;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        height: auto;
+        min-height: 0;
+    }
+}
+
 /* ==========================================
    SEÇÃO 2: HERO (Type/Divider Hero)
    ========================================== */
@@ -666,12 +689,15 @@ ul {
     }
 
     .step-reader {
-        margin-bottom: 150px;
+        margin-bottom: 80px;
+        /* Reduzido de 150px */
         opacity: 1;
         filter: blur(0);
     }
 
-    /* Mobile ler direto */
+    .step-reader:last-child {
+        margin-bottom: 0px;
+    }
 }
 
 /* ==========================================
@@ -681,6 +707,17 @@ ul {
     padding: 140px 0;
     background: var(--bg-surface);
     /* Mantem o portico */
+}
+
+@media (max-width: 768px) {
+    .quem-somos {
+        padding: 60px 0;
+        /* Reduzido de 140px */
+    }
+
+    .text-quem-title {
+        margin-bottom: 40px;
+    }
 }
 
 .text-quem-title {
