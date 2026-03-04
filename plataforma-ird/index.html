@@ -17,7 +17,34 @@
         rel="stylesheet">
 
     <!-- Base Styles Clássico Editorial -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=5">
+
+    <!-- Estilos Críticos Corretivos (Mobile) -->
+    <style>
+        @media (max-width: 600px) {
+            .header .nav-container {
+                flex-direction: column !important;
+                gap: 10px !important;
+                padding: 10px 5% !important;
+            }
+
+            .header .logo {
+                font-size: 1.2rem !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+
+            #cta-header-fix {
+                width: 100% !important;
+                display: block !important;
+                white-space: nowrap !important;
+                font-size: 11px !important;
+                padding: 10px 5px !important;
+                text-align: center !important;
+                letter-spacing: 0 !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,7 +62,8 @@
                 <a href="#bonus">Bônus</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            <a href="https://pay.hotmart.com/Q100171412O" class="btn btn--outline">MAGIS + ENAM ATÉ A APROVAÇÃO</a>
+            <a href="https://pay.hotmart.com/Q100171412O" id="cta-header-fix" class="btn btn--outline">MAGIS + ENAM ATÉ
+                A APROVAÇÃO</a>
         </div>
     </header>
 
