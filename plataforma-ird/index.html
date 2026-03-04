@@ -5,972 +5,547 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
-    <title>Plataforma IRD | MAGIS + ENAM ate a Aprovacao</title>
+    <title>Plataforma IRD | Magistratura e ENAM</title>
     <meta name="description"
         content="Passe na Magistratura e no ENAM com um plano estruturado ate a sua aprovacao. Cronograma pronto, PDFs objetivos, revisao estruturada e acesso continuo.">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Plataforma IRD | MAGIS + ENAM ate a Aprovacao">
-    <meta property="og:description"
-        content="Passe na Magistratura e no ENAM com um plano estruturado ate a sua aprovacao. Acesso continuo ate a aprovacao.">
-    <meta property="og:type" content="website">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-    <!-- Meta Pixel Code (Deferred via RequestIdleCallback for Performance) -->
-    <script>
-        // Lógica para CAPI (Deduplicação e Matching)
-        function getExternalId() {
-            let id = localStorage.getItem('meta_ext_id');
-            if (!id) {
-                id = 'ext_' + Math.random().toString(36).substr(2, 9) + Date.now();
-                localStorage.setItem('meta_ext_id', id);
-            }
-            return id;
-        }
-
-        const external_id = getExternalId();
-        const page_view_id = 'pv_' + Math.random().toString(36).substr(2, 9) + Date.now();
-
-        function loadMetaPixel() {
-            !function (f, b, e, v, n, t, s) {
-                if (f.fbq) return; n = f.fbq = function () {
-                    n.callMethod ?
-                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                };
-                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-                n.queue = []; t = b.createElement(e); t.async = !0;
-                t.src = v; s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s)
-            }(window, document, 'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-
-            fbq('init', '1026349941870089', { external_id: external_id });
-            fbq('track', 'PageView', {}, { eventID: page_view_id });
-
-            // Enviar para CAPI (Netlify Function)
-            fetch('/.netlify/functions/capi', {
-                method: 'POST',
-                body: JSON.stringify({
-                    event_name: 'PageView',
-                    event_id: page_view_id,
-                    user_data: { external_id: external_id }
-                })
-            }).catch(err => console.error('CAPI fetch error:', err));
-        }
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(() => { loadMetaPixel(); });
-        } else {
-            setTimeout(() => { loadMetaPixel(); }, 3000);
-        }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- FONTS: DM Serif Display + DM Sans (Max 3 Weights) -->
+    <!-- Fonts: DM Serif Display + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="//connect.facebook.net">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
         rel="stylesheet">
 
-    <!-- Preconnect CDNs -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <!-- Base Styles Clássico Editorial -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
-
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // AOS init
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 50,
-                easing: 'ease-out-cubic',
-                disableMutationObserver: true
-            });
-
-            // Header scroll
-            var header = document.querySelector('.header');
-            if (header) {
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                }, { passive: true });
-            }
-
-            if (toggle && nav) {
-                toggle.addEventListener('click', function () {
-                    nav.classList.toggle('active');
-                    toggle.classList.toggle('active');
-                });
-            }
-
-            // Counter Animation
-            var counterElements = document.querySelectorAll('[data-target]');
-            var counterObserver = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var target = entry.target;
-                        var targetValue = parseInt(target.getAttribute('data-target'));
-                        var duration = 2000;
-                        var start = 0;
-                        var startTime = null;
-
-                        function animate(currentTime) {
-                            if (!startTime) startTime = currentTime;
-                            var progress = Math.min((currentTime - startTime) / duration, 1);
-                            var value = Math.floor(progress * targetValue);
-
-                            if (target.id === 'price-counter') {
-                                target.innerText = value.toLocaleString('pt-BR');
-                            } else {
-                                target.innerText = value;
-                            }
-
-                            if (progress < 1) {
-                                requestAnimationFrame(animate);
-                            } else {
-                                target.innerText = target.id === 'price-counter' ? targetValue.toLocaleString('pt-BR') : targetValue;
-                            }
-                        }
-                        requestAnimationFrame(animate);
-                        counterObserver.unobserve(target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            counterElements.forEach(function (el) {
-                counterObserver.observe(el);
-            });
-        });
-    </script>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container">
-            <a href="#" class="header__logo">Plataforma <span>IRD</span></a>
-
-            <nav class="header__nav">
-                <a href="#cronograma" class="header__link">Cronograma</a>
-                <a href="#metodo" class="header__link">Método</a>
-                <a href="#bonus" class="header__link">Bônus</a>
-                <a href="#faq" class="header__link">FAQ</a>
-                <a href="#preco" class="header__cta">Começar agora</a>
+    <!-- ==========================================
+         SEÇÃO 1: HEADER NAVIGATION
+         Arquétipo: Minimal Editorial | Constraints: Bordas Sólidas Finas, Monocromático Absoluto
+         ========================================== -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo">Plataforma IRD</div>
+            <nav class="nav-links">
+                <a href="#metodo">Método</a>
+                <a href="#programa">Programa</a>
+                <a href="#bonus">Bônus</a>
+                <a href="#faq">FAQ</a>
             </nav>
-
-            <button class="header__toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <a href="#oferta" class="btn btn--outline">Iniciar Preparação</a>
         </div>
     </header>
 
-    <main>
+    <!-- ==========================================
+         SEÇÃO 2: HERO
+         Arquétipo: Type Hero | Constraints: Tipografia Colossal, Divisão Golden Ratio, Botão Agulha
+         ========================================== -->
+    <section class="hero">
+        <!-- Linha divisória vertical dourada p/ balanço -->
+        <div class="hero-divider"></div>
 
+        <div class="grid-container hero-grid">
+            <div class="hero__content">
+                <div class="hero__tag">MAGISTRATURA E ENAM ATÉ A POSSE</div>
 
-        <!-- ==================== HERO ==================== -->
-        <section class="hero">
-            <div class="hero__grain"></div>
+                <h1 class="hero__title">
+                    <span class="reveal-text">Seja aprovado</span><br>
+                    <span class="reveal-text">no ENAM <em class="serif-italic">e</em></span><br>
+                    <span class="reveal-text">Magistratura.</span>
+                </h1>
 
-            <div class="container">
+                <p class="hero__desc">
+                    Com um plano estruturado até a sua aprovação — mesmo que hoje você esteja iniciando, perdido,
+                    atrasado ou recomeçando.
+                </p>
 
-                <!-- Lado esquerdo: Copy principal -->
-                <div class="hero__content">
-                    <div class="hero__tag">MAGIS + ENAM ATE A APROVACAO</div>
-
-                    <h1 class="hero__headline">
-                        Seja aprovado no ENAM <strong>E MAGISTRATURA</strong>
-                    </h1>
-
-                    <p class="hero__sub">
-                        Com um plano estruturado ate a sua aprovacao -- mesmo que hoje voce esteja iniciando, perdido,
-                        atrasado ou recomecando.
-                    </p>
-
-                    <div class="hero__cta-group">
-                        <a href="#preco" class="btn-primary">
-                            Clique no botão abaixo e organize sua aprovação hoje
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                        <span class="hero__micro">
-                            Saia do ciclo eterno de cursinhos e entre em um plano estratégico que te conduz até a posse.
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ==================== VSL ==================== -->
-        <section class="vsl">
-            <div class="container" data-aos="fade-up">
-
-                <h2 class="vsl__title">Veja como o Sistema IRD vai transformar sua preparação</h2>
-
-                <div class="vsl__frame-container" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="vsl__frame">
-                        <div class="vsl__video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/0dmRcHqYXQY?rel=0&showinfo=0"
-                                title="Sistema IRD - Apresentação" frameborder="0" loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero__cta-group"
-                    style="align-items: center; justify-content: center; margin-top: 40px; text-align: center;">
-                    <a href="#preco" class="btn-primary" style="margin: 0 auto;">
-                        Quero começar minha preparação estratégica agora
+                <div class="hero__cta-wrapper">
+                    <a href="#oferta" class="btn btn--dark btn--large">
+                        Organize sua aprovação hoje
                     </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ==================== O PROBLEMA ==================== -->
-        <section id="problema" class="problema">
-            <div class="container">
-
-                <div class="problema__header" data-aos="fade-up">
-                    <div class="section-tag">O Problema</div>
-                    <h2 class="problema__title">O problema não é falta de inteligência.</h2>
-                    <h3 class="problema__subtitle">É falta de direção estratégica.</h3>
-                </div>
-
-                <div class="problema__bento">
-                    <!-- Card 1 (2x2) -->
-                    <div class="bento-card bento-card--large" data-aos="fade-up">
-                        <div class="bento-card__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 9v3.75m9-.75a9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                            </svg>
-                        </div>
-                        <h4 class="bento-card__title">Estuda por edital aberto.</h4>
-                        <p class="bento-card__desc">A urgência do edital impede a construção de uma base sólida. Você
-                            corre contra o tempo e acaba negligenciando o que realmente importa.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="bento-card__title">Vive de reta final.</h4>
-                        <p class="bento-card__desc">Sobrevivendo de revisões superficiais que não garantem retenção a
-                            longo prazo.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
-                        <h4 class="bento-card__title">Troca de cursinho.</h4>
-                        <p class="bento-card__desc">Busca a "fórmula mágica" em novos materiais sem nunca concluir o que
-                            começou.</p>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
-                        <h4 class="bento-card__title">Assiste aula, mas não retém.</h4>
-                        <p class="bento-card__desc">Estudo passivo que gera uma falsa sensação de aprendizagem.</p>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
-                        <h4 class="bento-card__title">Fica nos 60%.</h4>
-                        <p class="bento-card__desc">O platô que frustra quem se esforça mas não tem estratégia para o
-                            corte.</p>
-                    </div>
+                    <p class="hero__micro">Saia do ciclo eterno de cursinhos e entre em um plano estratégico que conduz
+                        até a posse.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- ==================== MECANISMO ÚNICO (SISTEMA IRD) ==================== -->
-        <section id="metodo" class="mecanismo">
-            <div class="container">
-                <div class="mecanismo__grid">
-                    <!-- Lado Esquerdo: Card Stack -->
-                    <div class="mecanismo__visual">
-                        <div class="card-stack">
-                            <div class="stack-card stack-card--1" data-aos="fade-right">
-                                <span class="stack-card__tag">Estratégia</span>
-                                <h4 class="stack-card__title">Cronogramas por Fase</h4>
-                            </div>
-                            <div class="stack-card stack-card--2" data-aos="fade-right" data-aos-delay="100">
-                                <span class="stack-card__tag">Material</span>
-                                <h4 class="stack-card__title">PDFs Diretos</h4>
-                            </div>
-                            <div class="stack-card stack-card--3" data-aos="fade-right" data-aos-delay="200">
-                                <span class="stack-card__tag">Análise</span>
-                                <h4 class="stack-card__title">Diagnóstico 360°</h4>
-                            </div>
-                            <div class="pulse-ring"></div>
-                        </div>
-                    </div>
+            <div class="hero__visual">
+                <!-- Foco apenas no vácuo e tipografia. Nenhuma imagem. -->
+            </div>
+        </div>
+    </section>
 
-                    <!-- Lado Direito: Texto Explicativo -->
-                    <div class="mecanismo__content" data-aos="fade-left">
-                        <div class="section-tag">Mecanismo Único</div>
-                        <h2 class="mecanismo__title">Sistema IRD de Aprovação Estruturada</h2>
-                        <p class="mecanismo__subtitle">Nao e apenas uma "plataforma", e o seu diferencial estrategico.
-                            Voce entra sem organizacao e sai com um plano semanal claro do que estudar, revisar e
-                            testar.
-                        </p>
-
-                        <div class="mecanismo__features">
-                            <div class="m-feature">
-                                <span class="m-feature__icon">✓</span>
-                                <div>
-                                    <h5 class="m-feature__title">Autoanálise Inicial</h5>
-                                    <p class="m-feature__text">Identificamos suas lacunas antes mesmo do primeiro dia de
-                                        estudo.</p>
-                                </div>
-                            </div>
-                            <div class="m-feature">
-                                <span class="m-feature__icon">✓</span>
-                                <div>
-                                    <h5 class="m-feature__title">Revisão Cíclica</h5>
-                                    <p class="m-feature__text">O conteúdo estudado hoje não será esquecido amanhã.
-                                        Estratégia de repetição espaçada.</p>
-                                </div>
-                            </div>
-                            <div class="m-feature">
-                                <span class="m-feature__icon">✓</span>
-                                <div>
-                                    <h5 class="m-feature__title">Jurisprudência Aplicada</h5>
-                                    <p class="m-feature__text">Foco total no que os tribunais estão decidindo agora, do
-                                        jeito que cai na prova.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hero__cta-group" style="margin-top: 40px;">
-                            <a href="#preco" class="btn-primary">
-                                Quero meu plano estratégico
-                            </a>
-                        </div>
-                    </div>
+    <!-- ==========================================
+         SEÇÃO 3: O PROBLEMA REAL
+         Arquétipo: Editorial / Photo Essay | Constraints: Numerais Romanos, Ausência de Ícones, Bordas Coluna
+         ========================================== -->
+    <section class="problem" id="problema">
+        <div class="grid-container">
+            <div class="problem__header">
+                <h2 class="section-title">O problema não é falta de inteligência.<br>É falta de direção estratégica.
+                </h2>
+                <div class="problem__desc-wrapper">
+                    <p class="section-desc">A maioria dos concurseiros nunca constrói base sólida. Eles sobrevivem de
+                        urgência. E prova de alto nível não premia urgência. Premia consistência
+                        estruturada.<br><br><strong>Você se identifica?</strong></p>
                 </div>
             </div>
-        </section>
 
-        <!-- ==================== COMO FUNCIONA (4 PASSOS) ==================== -->
-        <section class="passos">
-            <div class="container">
-                <div class="passos__header" data-aos="fade-up">
-                    <div class="section-tag">Como Funciona</div>
-                    <h2 class="passos__title">Sua jornada até a posse em 4 passos</h2>
+            <div class="editorial-grid">
+                <!-- Card I -->
+                <div class="editorial-column">
+                    <div class="roman-numeral">I.</div>
+                    <h3>Estuda por edital aberto.</h3>
+                    <p>A urgência do edital impede a construção de uma base sólida. Você corre contra o tempo e acaba
+                        negligenciando o que realmente importa.</p>
                 </div>
 
-                <div class="passos__grid">
-                    <!-- Passo 1 -->
-                    <div class="passo-item" data-aos="fade-up">
-                        <span class="passo-item__bg-number">01</span>
-                        <div class="passo-item__content">
-                            <h4 class="passo-item__title">Diagnóstico</h4>
-                            <p class="passo-item__text">Análise profunda do seu nível atual por disciplina para
-                                identificar onde você está perdendo pontos.</p>
-                        </div>
-                    </div>
+                <!-- Card II -->
+                <div class="editorial-column">
+                    <div class="roman-numeral">II.</div>
+                    <h3>Vive de reta final.</h3>
+                    <p>Sobrevive de revisões superficiais que não garantem retenção.</p>
+                </div>
 
-                    <!-- Passo 2 -->
-                    <div class="passo-item" data-aos="fade-up" data-aos-delay="100">
-                        <span class="passo-item__bg-number">02</span>
-                        <div class="passo-item__content">
-                            <h4 class="passo-item__title">Organização da fase</h4>
-                            <p class="passo-item__text">Montagem do seu cronograma estratégico baseado no seu
-                                diagnóstico e tempo disponível.</p>
-                        </div>
-                    </div>
+                <!-- Card III -->
+                <div class="editorial-column">
+                    <div class="roman-numeral">III.</div>
+                    <h3>Troca de cursinho.</h3>
+                    <p>Busca a "fórmula mágica" em novos materiais e não conclui absolutamente nada.</p>
+                </div>
 
-                    <!-- Passo 3 -->
-                    <div class="passo-item" data-aos="fade-up" data-aos-delay="200">
-                        <span class="passo-item__bg-number">03</span>
-                        <div class="passo-item__content">
-                            <h4 class="passo-item__title">Execução com revisão</h4>
-                            <p class="passo-item__text">Estudo prático com PDFs objetivos e nosso sistema de revisão
-                                cíclica para máxima retenção.</p>
-                        </div>
-                    </div>
+                <!-- Card IV -->
+                <div class="editorial-column">
+                    <div class="roman-numeral">IV.</div>
+                    <h3>Assiste aula, mas não retém.</h3>
+                    <p>Fica com a falsa sensação de aprendizado, sendo apenas um telespectador passivo no processo.</p>
+                </div>
 
-                    <!-- Passo 4 -->
-                    <div class="passo-item" data-aos="fade-up" data-aos-delay="300">
-                        <span class="passo-item__bg-number">04</span>
-                        <div class="passo-item__content">
-                            <h4 class="passo-item__title">Acompanhamento continuo</h4>
-                            <p class="passo-item__text">Com um anjo ajustando a rota junto com voce ate a sua aprovacao.
-                            </p>
-                        </div>
-                    </div>
+                <!-- Card V -->
+                <div class="editorial-column col-span-2">
+                    <div class="roman-numeral gold">V.</div>
+                    <h3>Fica estacionado nos 60%.</h3>
+                    <p>O platô mais doloroso. Você se esforça, gasta horas a fio sentando a bunda na cadeira, mas sem
+                        estratégia direcionada para pontos fracos e revisão analítica, o corte exigido pela prova nunca
+                        é alcançado.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <!-- ==========================================
+         SEÇÃO 4: VSL DOCUMENTARY
+         Arquétipo: Video Immersive | Constraints: Fundo Asfalto, Sem Glow, Padding Extremo
+         ========================================== -->
+    <section class="vsl" id="vsl">
+        <div class="grid-container">
+            <h2 class="vsl__title">Veja como o Sistema IRD vai transformar sua preparação</h2>
 
-        <!-- ==================== BONUS EXCLUSIVO ==================== -->
-        <section id="bonus" class="bonus">
-            <div class="container">
-
-                <div class="bonus__header" data-aos="fade-up">
-                    <div class="section-tag">BONUS EXCLUSIVO</div>
-                    <h2 class="bonus__title">Bonus exclusivo para quem comprar hoje</h2>
-                </div>
-
-                <div class="bonus__cards" data-aos="fade-up">
-                    <div class="bonus__glow"></div>
-
-                    <!-- Bonus 1: Juriz IA -->
-                    <div class="bonus__card">
-                        <div class="bonus__card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                            </svg>
-                        </div>
-                        <h3 class="bonus__card-title">Juriz IA</h3>
-                        <p class="bonus__card-desc">Nossa ferramenta de consulta rapida as jurisprudencias. Pesquise e
-                            encontre decisoes relevantes em segundos com inteligencia artificial.</p>
-                    </div>
-
-                    <!-- Bonus 2: Aulas de Sentenca -->
-                    <div class="bonus__card">
-                        <div class="bonus__card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                            </svg>
-                        </div>
-                        <h3 class="bonus__card-title">+1 ano de aulas de sentenca</h3>
-                        <p class="bonus__card-desc">Apos a sua aprovacao na primeira fase, voce recebe +1 ano de acesso
-                            as aulas de sentenca para se preparar para a proxima etapa.</p>
-                    </div>
-                </div>
-
-                <div class="bonus__destaque" data-aos="fade-up">
-                    <p>Acesso ate a sua aprovacao.</p>
-                </div>
-
+            <div class="vsl__video-box">
+                <iframe src="https://www.youtube.com/embed/0dmRcHqYXQY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
-        </section>
 
-        <!-- ==================== OFERTA (SPOTLIGHT) ==================== -->
-        <section id="preco" class="oferta">
-            <div class="container">
-                <div class="oferta__header" data-aos="fade-up">
-                    <div class="section-tag">Acesso Imediato</div>
-                    <h2 class="oferta__title">O que você recebe na sua preparação completa</h2>
-                    <p class="oferta__subtitle">A estrutura definitiva para quem não quer perder tempo e focar no que
-                        realmente cai.</p>
+            <div class="vsl__cta">
+                <a href="#oferta" class="btn btn--gold">
+                    Iniciar Preparação Estratégica
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 5: MECANISMO ÚNICO (Espinha Dorsal)
+         Arquétipo: Typographic Index | Constraints: Linha Contínua, Hover Dourado, Font Serif
+         ========================================== -->
+    <section class="mecanismo" id="metodo">
+        <div class="grid-container mecanismo__grid">
+
+            <div class="mecanismo__sticky-panel">
+                <h2 class="section-title">Sistema Institucional IRD</h2>
+                <p class="section-desc">Não é apenas uma "plataforma", é o seu diferencial estratégico. Você entra sem
+                    organização e sai com um plano seminal claro do que estudar e revisar. O Sistema IRD conduz através
+                    de uma transformação real.</p>
+            </div>
+
+            <div class="mecanismo__index">
+                <div class="index-row">
+                    <span class="index-num">[ 01 ]</span>
+                    <h3 class="index-title">Autoanálise Inicial</h3>
                 </div>
-
-                <div class="oferta__card" data-aos="zoom-in">
-                    <div class="oferta__grid">
-                        <div class="oferta__info">
-                            <ul class="oferta__list">
-                                <li><span>Cronogramas extensivo, intensivo e reta final</span></li>
-                                <li><span>PDFs objetivos e Jurisprudência selecionada</span></li>
-                                <li><span>Sistema de revisão estruturada</span></li>
-                                <li><span>Diagnóstico por disciplina e Bateria ENAM/FGV</span></li>
-                                <li><span>Onboarding com Anjo + Suporte dedicado</span></li>
-                                <li><span>Acesso contínuo até a aprovação</span></li>
-                            </ul>
-                        </div>
-                        <div class="oferta__price">
-                            <div class="price-box">
-                                <span class="price-label">Investimento</span>
-                                <div class="price-main">
-                                    <span class="price-currency">R$</span>
-                                    <span class="price-value" id="price-counter" data-target="2410">2.410</span>
-                                    <span class="price-suffix">à vista</span>
-                                </div>
-                                <div class="price-installments">ou 12x de <strong>R$ 249,25</strong></div>
-                                <a href="javascript:void(0)" class="btn-primary oferta__cta js-open-checkout">
-                                    Quero Garantir Minha Vaga
-                                </a>
-                                <p class="oferta__micro">Pagamento seguro via Hotmart</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="index-row">
+                    <span class="index-num">[ 02 ]</span>
+                    <h3 class="index-title">Cronograma por Fase</h3>
+                </div>
+                <div class="index-row">
+                    <span class="index-num">[ 03 ]</span>
+                    <h3 class="index-title">PDF Direto ao Ponto</h3>
+                </div>
+                <div class="index-row">
+                    <span class="index-num">[ 04 ]</span>
+                    <h3 class="index-title">Jurisprudência Aplicada</h3>
+                </div>
+                <div class="index-row">
+                    <span class="index-num">[ 05 ]</span>
+                    <h3 class="index-title">Revisão Cíclica</h3>
+                </div>
+                <div class="index-row">
+                    <span class="index-num">[ 06 ]</span>
+                    <h3 class="index-title">Diagnóstico Disciplinar</h3>
+                </div>
+                <div class="index-row">
+                    <span class="index-num">[ 07 ]</span>
+                    <h3 class="index-title">Bateria ENAM/FGV</h3>
                 </div>
             </div>
-        </section>
 
         </div>
-        </section>
+    </section>
 
-        <!-- ==================== PARA QUEM É (SPLIT VERTICAL) ==================== -->
-        <section class="qualificacao">
-            <div class="container--full">
-                <div class="qualificacao__grid">
-                    <!-- Lado Sim -->
-                    <div class="qualificacao__side qualificacao__side--sim" data-aos="fade-right">
-                        <div class="qualificacao__inner">
-                            <h3 class="qualificacao__title">Este projeto é para você se...</h3>
-                            <ul class="qualificacao__list">
-                                <li>
-                                    <span class="q-icon">✓</span>
-                                    <span>Recém-formado ou no início da jornada que não sabe por onde começar.</span>
-                                </li>
-                                <li>
-                                    <span class="q-icon">✓</span>
-                                    <span>Estagnado nos 60% e precisa de estratégia para romper o platô.</span>
-                                </li>
-                                <li>
-                                    <span class="q-icon">✓</span>
-                                    <span>Cansado de depender apenas de "reta final" e quer uma base sólida.</span>
-                                </li>
-                                <li>
-                                    <span class="q-icon">✓</span>
-                                    <span>Encara a aprovação como um projeto sério de vida.</span>
-                                </li>
+    <!-- ==========================================
+         SEÇÃO 6: OS 4 PASSOS
+         Arquétipo: Timeline Estacionária | Constraints: Scroll-triggered Blur, Tipografia Monolítica
+         ========================================== -->
+    <section class="passos">
+        <div class="grid-container passos__grid">
+
+            <div class="passos__sidebar">
+                <div class="sticky-anchor">
+                    <h2 class="section-title steps-title">A Jornada do Zero à Posse</h2>
+                    <p class="section-desc">Execução disciplinada em Quatro Estágios Definidos.</p>
+                </div>
+            </div>
+
+            <div class="passos__content" id="passos-scroller">
+                <div class="step-reader js-step-blur">
+                    <div class="step-num">Passo 01.</div>
+                    <h3 class="step-title">O Diagnóstico</h3>
+                    <p class="step-desc">Entendemos exatamente onde você está hoje, mapeando forças e fraquezas para o
+                        ponto de partida ideal da jornada.</p>
+                </div>
+
+                <div class="step-reader js-step-blur">
+                    <div class="step-num">Passo 02.</div>
+                    <h3 class="step-title">Organização da Fase</h3>
+                    <p class="step-desc">Não importa se você é iniciante absoluto ou já está batendo na trave. Montamos
+                        o cronograma exato para a sua fase.</p>
+                </div>
+
+                <div class="step-reader js-step-blur">
+                    <div class="step-num">Passo 03.</div>
+                    <h3 class="step-title">Revisão Estruturada</h3>
+                    <p class="step-desc">Você para de acumular aulas não assistidas e passa a executar baterias de
+                        questões voltadas exclusivamente para ENAM e FGV.</p>
+                </div>
+
+                <div class="step-reader js-step-blur">
+                    <div class="step-num">Passo 04.</div>
+                    <h3 class="step-title">Acompanhamento Contínuo</h3>
+                    <p class="step-desc">Com um anjo ajustando a rota junto com você até a sua aprovação. Inteligência
+                        tática e apoio ininterrupto.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 7: QUEM É E NÃO É (A Escolha do Perfil)
+         Arquétipo: Tabela Diálogo Split | Constraints: Travessões, Divisor Único Rígido
+         ========================================== -->
+    <section class="quem-somos">
+        <div class="grid-container">
+            <h2 class="section-title text-center text-quem-title">A Definição de Perfil</h2>
+
+            <div class="split-table">
+                <!-- Coluna Esquerda -->
+                <div class="split-col">
+                    <h3 class="split-head">Exclusivo Para</h3>
+                    <ul class="dialog-list">
+                        <li>— Quem saiu da faculdade e não sabe por onde começar.</li>
+                        <li>— Quem estuda há anos e não passa da barreira dos 60%.</li>
+                        <li>— Quem quer parar de depender exclusivamente de retas finais.</li>
+                        <li>— Quem enxerga a aprovação como um projeto técnico e sério.</li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Direita -->
+                <div class="split-col border-left">
+                    <h3 class="split-head">Restrito Para</h3>
+                    <ul class="dialog-list list-muted">
+                        <li>— Para quem anseia por horas de videoaula infinita.</li>
+                        <li>— Para quem pretende estudar apenas no pós-edital.</li>
+                        <li>— Para quem procura fórmulas de exceção.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 8: A OFERTA (Contrato Final / Poster Box)
+         Arquétipo: Typographic Poster Box | Constraints: Passepartout, Zero Sombra, Bônus em Encarte
+         ========================================== -->
+    <section class="oferta" id="oferta">
+
+        <!-- Bloco de Bônus Estilo "Encarte Bibliográfico" -->
+        <div class="grid-container">
+            <div class="bonus-encartes">
+                <div class="encarte-box">
+                    <span class="encarte-tag">Bônus Exclusivo 01</span>
+                    <h3 class="encarte-title">Acervo Juriz IA</h3>
+                    <p class="encarte-desc">Ferramenta de consulta instantânea às jurisprudências, acelerando sua
+                        pesquisa.</p>
+                </div>
+                <div class="encarte-box">
+                    <span class="encarte-tag">Bônus Exclusivo 02</span>
+                    <h3 class="encarte-title">Clínica de Sentença</h3>
+                    <p class="encarte-desc">Acesso liberado a +1 ano de aulas de sentença logo após sua aprovação na 1ª
+                        fase.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poster Box Principal -->
+        <div class="poster-container grid-container">
+            <div class="poster-box">
+                <!-- Borda dupla Passepartout via CSS -->
+                <div class="poster-inner">
+                    <div class="poster-header">
+                        <h2 class="poster-heading">Você não está comprando acesso.</h2>
+                        <p class="poster-subheading">Está garantindo acompanhamento até a sua aprovação.</p>
+                    </div>
+
+                    <div class="poster-grid">
+                        <div class="poster-includes">
+                            <ul class="check-list-formal">
+                                <li>Cronograma extensivo, intensivo e reta final</li>
+                                <li>PDFs objetivos com jurisprudência</li>
+                                <li>Sistema analítico de revisão</li>
+                                <li>Bateria intensiva ENAM/FGV</li>
+                                <li>Onboarding direto com o Anjo</li>
+                                <li><strong>Acesso total até a aprovação</strong></li>
                             </ul>
                         </div>
-                    </div>
 
-                    <!-- Lado Não -->
-                    <div class="qualificacao__side qualificacao__side--nao" data-aos="fade-left">
-                        <div class="qualificacao__inner">
-                            <h3 class="qualificacao__title">NÃO é para você se...</h3>
-                            <ul class="qualificacao__list">
-                                <li>
-                                    <span class="q-icon">✕</span>
-                                    <span>Procura por videoaulas infinitas sem estudo ativo.</span>
-                                </li>
-                                <li>
-                                    <span class="q-icon">✕</span>
-                                    <span>Prefere estudar apenas quando o edital é publicado.</span>
-                                </li>
-                                <li>
-                                    <span class="q-icon">✕</span>
-                                    <span>Está em busca de uma "fórmula mágica" para a posse.</span>
-                                </li>
-                            </ul>
+                        <div class="poster-price-area">
+                            <div class="price-display">
+                                <span class="prefix">12x</span>
+                                <span class="currency">R$</span>
+                                <span class="amount">249,25</span>
+                            </div>
+                            <p class="price-vista">Pagamento em cota única: R$ 2.410</p>
+
+                            <a href="https://pay.hotmart.com" class="btn btn--wide btn--white">Garantir Assento na
+                                Turma</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-
-
-        <!-- ==================== CTA FINAL ==================== -->
-        <section class="cta-final">
-            <div class="cta-final__mesh"></div>
-            <div class="container">
-
-                <div class="cta-final__content">
-                    <h2 class="cta-final__title" data-aos="fade-up">Esta na hora de tomar a decisao certa</h2>
-                    <p class="cta-final__text" data-aos="fade-up" data-aos-delay="100">Voce pode continuar tentando
-                        sozinho, ou pode ter um caminho claro, organizado e direcionado ate a sua aprovacao.</p>
-
-                    <div class="cta-final__actions" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#preco" class="btn-primary cta-final__btn">
-                            Garantir minha vaga na Plataforma IRD
-                        </a>
-                    </div>
-
-                    <div class="cta-final__bullets" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bullet">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                            </svg>
-                            <span>Acesso ate a aprovacao</span>
-                        </div>
-                        <div class="bullet">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                            </svg>
-                            <span>Bonus exclusivos inclusos</span>
-                        </div>
-                        <div class="bullet">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                            </svg>
-                            <span>Suporte dedicado</span>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-        <!-- ==================== GARANTIA (MINIMALIST) ==================== -->
-        <section class="garantia">
-            <div class="container">
-                <div class="garantia__box" data-aos="zoom-in">
-                    <div class="garantia__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                        </svg>
-                    </div>
-                    <h2 class="garantia__title">Voce nao esta comprando acesso.</h2>
-                    <h3 class="garantia__subtitle"
-                        style="font-size: 1.25rem; color: var(--gold-300); margin-bottom: 24px; font-family: var(--font-heading);">
-                        Esta garantindo acompanhamento ate a sua aprovacao.</h3>
-                    <p class="garantia__text">Se voce executar o metodo e nao evoluir, nos reorganizamos sua estrategia.
-                        <strong>Isso muda tudo.</strong></p>
-                </div>
+    <!-- ==========================================
+         SEÇÃO 9: GARANTIA (Selo Formal)
+         Arquétipo: Assinatura Documental | Constraints: Serif Titular Exclusivo, Fundo creme
+         ========================================== -->
+    <section class="garantia">
+        <div class="grid-container">
+            <div class="signature-box">
+                <h2 class="sig-number">07 Dias</h2>
+                <h3 class="sig-title">Garantia Incondicional</h3>
+                <p class="sig-text">Se você executar o método e não evoluir, nós reorganizamos sua estratégia. Isso muda
+                    tudo.</p>
+                <div class="sig-stamp">Documento de Garantia IRD Limitada</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ==================== FAQ (ACCORDION) ==================== -->
-        <section id="faq" class="faq">
-            <div class="container">
-                <div class="faq__header" data-aos="fade-up">
-                    <div class="section-tag">Duvidas Frequentes</div>
-                    <h2 class="faq__title">Perguntas frequentes</h2>
+    <!-- ==========================================
+         SEÇÃO 10: FAQ (Acórdeon Tipo Linha Textual)
+         Arquétipo: ASCII Accordion | Constraints: Math Symbols, Monospace, Border 1px
+         ========================================== -->
+    <section class="faq" id="faq">
+        <div class="grid-container faq-grid">
+            <h2 class="section-title text-center" style="margin-bottom: 60px;">Q&A</h2>
+
+            <div class="faq-list">
+                <div class="faq-row">
+                    <button class="faq-btn">
+                        <span class="faq-ask">A carga horária recomendada</span>
+                        <span class="faq-math">[+]</span>
+                    </button>
+                    <div class="faq-ans">
+                        <p>O cronograma foi pensado para uma média de 4 horas de estudo diário, mas ajusta-se à sua
+                            realidade. Constância é o cerne.</p>
+                    </div>
                 </div>
 
-                <div class="faq__grid">
-                    <div class="faq-item" data-aos="fade-up">
-                        <button class="faq-item__question">
-                            <span>Qual a carga horaria de estudo recomendada?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>O cronograma foi pensado para uma media de 4 horas de estudo diario, mas pode ser
-                                    adaptado a sua realidade. O importante e a constancia e seguir o plano de forma
-                                    organizada.</p>
-                            </div>
-                        </div>
+                <div class="faq-row">
+                    <button class="faq-btn">
+                        <span class="faq-ask">Frequência de atualizações do edital</span>
+                        <span class="faq-math">[+]</span>
+                    </button>
+                    <div class="faq-ans">
+                        <p>Imediata. A base é corrigida integralmente de acordo com a mutação jurisprudencial e das
+                            bancas.</p>
                     </div>
+                </div>
 
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                        <button class="faq-item__question">
-                            <span>O curso e atualizado conforme mudancas no edital?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>Sim. A plataforma e constantemente atualizada com base nas mudancas de edital,
-                                    jurisprudencia e tendencias da banca. Voce sempre tera acesso ao conteudo mais
-                                    relevante.</p>
-                            </div>
-                        </div>
+                <div class="faq-row">
+                    <button class="faq-btn">
+                        <span class="faq-ask">Adequação para o aspirante iniciante</span>
+                        <span class="faq-math">[+]</span>
+                    </button>
+                    <div class="faq-ans">
+                        <p>Perfeita correspondência. O estudo parte da base pura, elevando-o mecanicamente ao nível
+                            competitivo sem dispersão teórica irrelevante.</p>
                     </div>
+                </div>
 
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                        <button class="faq-item__question">
-                            <span>Sou iniciante, esse curso e para mim?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>Com certeza. O cronograma comeca do basico e evolui de forma progressiva. Voce nao
-                                    precisa de conhecimento previo -- o metodo te guia do zero ate a prova.</p>
-                            </div>
-                        </div>
+                <div class="faq-row">
+                    <button class="faq-btn">
+                        <span class="faq-ask">Interseção com carga laborativa civil</span>
+                        <span class="faq-math">[+]</span>
+                    </button>
+                    <div class="faq-ans">
+                        <p>Totalmente possível. O esquema cíclico fraciona o conteúdo permitindo o cumprimento mesmo em
+                            lapsos curtos do dia útil.</p>
                     </div>
+                </div>
 
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
-                        <button class="faq-item__question">
-                            <span>Consigo conciliar com trabalho?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>Sim, o curso foi desenhado exatamente para quem trabalha e estuda. O cronograma de
-                                    ~4h diarias pode ser distribuido ao longo do dia conforme sua rotina.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                        <button class="faq-item__question">
-                            <span>Como funciona o acesso ate a aprovacao?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>Ao contrario de outras plataformas com tempo fixo, o IRD oferece acesso continuo e
-                                    acompanhamento ate que voce atinja o seu objetivo. Nos acompanhamos a evolucao da
-                                    sua carreira.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-                        <button class="faq-item__question">
-                            <span>Posso acessar pelo celular?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-item__answer">
-                            <div class="faq-item__answer-inner">
-                                <p>Sim. A plataforma e 100% responsiva e funciona perfeitamente em celulares, tablets e
-                                    computadores. Estude de onde voce estiver.</p>
-                            </div>
-                        </div>
+                <div class="faq-row">
+                    <button class="faq-btn">
+                        <span class="faq-ask">Tratativa de acesso até a aprovação</span>
+                        <span class="faq-math">[+]</span>
+                    </button>
+                    <div class="faq-ans">
+                        <p>Trata-se de vínculo até o êxito objetivo. Não é assinatura anual limitante. É compromisso
+                            pautado no resultado final.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <!-- ==================== FOOTER ==================== -->
+    <!-- ==========================================
+         SEÇÃO 11: FOOTER (Editorial Branco)
+         Arquétipo: Tri-Colunm Typography | Constraints: Papel Físico Branco, Clean Text
+         ========================================== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__brand">
-                    <a href="#" class="header__logo">Plataforma <span>IRD</span></a>
-                    <p class="footer__tagline">A plataforma de estudos que te leva do inicio ate a aprovacao na
-                        Magistratura e no ENAM. Estudo organizado, estrategico e direcionado.</p>
+        <div class="grid-container">
+            <div class="footer-grid">
+                <div class="footer-logo-col">
+                    <h2 class="footer-logo">Plataforma IRD</h2>
+                    <p class="footer-sobre">Instituto concebido para lapidação contínua do candidato rumo à
+                        Magistratura. Estudo técnico sem vícios acadêmicos.</p>
                 </div>
-                <div class="footer__col">
-                    <h4 class="footer__col-title">Links</h4>
-                    <a href="#cronograma" class="footer__link">Cronograma</a>
-                    <a href="#metodo" class="footer__link">Metodo</a>
-                    <a href="#bonus" class="footer__link">Bonus</a>
-                    <a href="#faq" class="footer__link">FAQ</a>
+                <div class="footer-links-col">
+                    <p class="footer-topic">CONTATO DIRETO</p>
+                    <p>suporte@institutoird.com</p>
+                    <p>(67) 99906-2339</p>
                 </div>
-                <div class="footer__col">
-                    <h4 class="footer__col-title">Contatos</h4>
-                    <a href="mailto:suporte@institutoird.com" class="footer__link">suporte@institutoird.com</a>
-                    <a href="tel:+5567999062339" class="footer__link">(67) 99906-2339</a>
+                <div class="footer-links-col">
+                    <p class="footer-topic">INSTITUTO</p>
+                    <a href="#">Governança e Política</a>
+                    <a href="#">Regimento Acadêmico</a>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2026 Plataforma IRD. Todos os direitos reservados.
-                    <a href="/termos">Termos de Uso</a> |
-                    <a href="/privacidade">Politica de Privacidade</a>
-                </p>
+            <div class="footer-copy">
+                <p>&copy; 2026 Plataforma IRD. Todos os parágrafos preservados sob proteção autoral.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Script Accordion -->
+    <!-- SCRIPT GERAL PARA INTERATIVIDADE EDITORIAL E GSAP BÁSICO SE NECESSÁRIO -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const faqItems = document.querySelectorAll('.faq-item');
+        // Header Anim Sutil. No blur, apenas borda.
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('is-active');
+            } else {
+                header.classList.remove('is-active');
+            }
+        });
 
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-item__question');
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
+        // FAQ ASCII Toggle logic
+        const faqs = document.querySelectorAll('.faq-row');
+        faqs.forEach(row => {
+            const btn = row.querySelector('.faq-btn');
+            const math = row.querySelector('.faq-math');
+            const ans = row.querySelector('.faq-ans');
 
-                    // Fecha todos os outros
-                    faqItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                    });
+            btn.addEventListener('click', () => {
+                const isOpen = row.classList.contains('active');
 
-                    // Abre o atual se não estava ativo
-                    if (!isActive) {
-                        item.classList.add('active');
-                    }
+                // Fecha todas
+                faqs.forEach(r => {
+                    r.classList.remove('active');
+                    r.querySelector('.faq-math').textContent = '[+]';
+                    r.querySelector('.faq-ans').style.maxHeight = '0px';
                 });
+
+                // Se não estava aberto, abra o atual.
+                if (!isOpen) {
+                    row.classList.add('active');
+                    math.textContent = '[-]';
+                    ans.style.maxHeight = ans.scrollHeight + "px"; // Anima suave a revelacao
+                }
             });
         });
-    </script>
 
-    <!-- MODAL DE CHECKOUT -->
-    <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Finalizar Inscrição">
-        <div class="modal-content">
-            <button type="button" class="modal-close" id="close-modal" aria-label="Fechar">&times;</button>
+        // Passos Blur no Scroll via IntersectionObserver puro (Performance Top, Sem lib Externa)
+        const stepReaders = document.querySelectorAll('.js-step-blur');
 
-            <div class="modal-header">
-                <h2 class="modal-title">Quase lá!</h2>
-                <p class="modal-subtitle">Preencha seus dados para prosseguir para o pagamento seguro.</p>
-            </div>
+        const stepOptions = {
+            root: null,
+            rootMargin: '-30% 0px -30% 0px', // Aciona quando passa no meio da tela (40% do centro livre)
+            threshold: 0
+        };
 
-            <form name="lead-checkout" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form
-                id="checkout-form">
-                <input type="hidden" name="form-name" value="lead-checkout">
-                <p hidden><label>Nao preencha: <input name="bot-field"></label></p>
-
-                <!-- UTMs -->
-                <input type="hidden" name="utm_source" id="utm_source">
-                <input type="hidden" name="utm_medium" id="utm_medium">
-                <input type="hidden" name="utm_campaign" id="utm_campaign">
-                <input type="hidden" name="utm_term" id="utm_term">
-                <input type="hidden" name="utm_content" id="utm_content">
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-nome">Nome Completo</label>
-                    <input type="text" id="modal-nome" name="nome" class="form-input" placeholder="Seu nome completo"
-                        required autocomplete="name">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-email">E-mail</label>
-                    <input type="email" id="modal-email" name="email" class="form-input" placeholder="seu@email.com"
-                        required autocomplete="email">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-telefone">WhatsApp</label>
-                    <input type="tel" id="modal-telefone" name="telefone" class="form-input" required
-                        autocomplete="tel">
-                </div>
-
-                <div class="form-feedback"></div>
-
-                <button type="submit" class="btn-primary"
-                    style="width: 100%; justify-content: center; margin-top: 20px;">
-                    Ir para o Pagamento Seguro
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" style="width: 18px; margin-left: 8px;">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                </button>
-
-                <p class="modal-security">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" style="width: 12px; margin-right: 4px;">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                    </svg>
-                    Ambiente 100% Seguro e Criptografado
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // UTM Management
-        function saveUTMs() {
-            const params = new URLSearchParams(window.location.search);
-            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-            utms.forEach(utm => {
-                const value = params.get(utm);
-                if (value) localStorage.setItem(utm, value);
-            });
-        }
-
-        function fillUTMs() {
-            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-            utms.forEach(utm => {
-                const value = localStorage.getItem(utm);
-                const el = document.getElementById(utm);
-                if (value && el) el.value = value;
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            saveUTMs();
-            fillUTMs();
-
-            // Modal Logic
-            const modal = document.getElementById('checkout-modal');
-            const openBtns = document.querySelectorAll('.js-open-checkout');
-            const closeBtn = document.getElementById('close-modal');
-
-            function openModal() {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            openBtns.forEach(btn => btn.addEventListener('click', openModal));
-            closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-            // intl-tel-input
-            const phoneInput = document.getElementById('modal-telefone');
-            const iti = window.intlTelInput(phoneInput, {
-                initialCountry: 'br',
-                preferredCountries: ['br', 'us', 'pt'],
-                separateDialCode: true,
-                autoPlaceholder: 'polite',
-                strictMode: true,
-                loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js'
-            });
-
-            // Form Submit
-            const form = document.getElementById('checkout-form');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                if (!iti.isValidNumber()) {
-                    alert('Por favor, insira um número de WhatsApp válido.');
-                    return;
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-focus');
+                } else {
+                    entry.target.classList.remove('in-focus');
                 }
-
-                const formData = new FormData(form);
-                const name = formData.get('nome');
-                const email = formData.get('email');
-                const phone = iti.getNumber();
-
-                // Botão loading state
-                const btn = form.querySelector('button[type="submit"]');
-                const originalText = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = 'Processando...';
-
-                // Enviar para Netlify
-                fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                })
-                    .then(() => {
-                        // Track lead (Meta Pixel)
-                        if (window.fbq) {
-                            fbq('track', 'Lead', {
-                                content_name: 'Checkout Plataforma IRD',
-                                value: 2410.00,
-                                currency: 'BRL'
-                            });
-                        }
-
-                        // Redirecionar para Hotmart
-                        const hotmartUrl = new URL('https://pay.hotmart.com/L85860528K');
-                        hotmartUrl.searchParams.set('bid', '1772194525196');
-                        hotmartUrl.searchParams.set('name', name);
-                        hotmartUrl.searchParams.set('email', email);
-                        hotmartUrl.searchParams.set('phone', phone);
-
-                        // Add UTMs to redirect
-                        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(utm => {
-                            const val = localStorage.getItem(utm);
-                            if (val) hotmartUrl.searchParams.set(utm, val);
-                        });
-
-                        window.location.href = hotmartUrl.toString();
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        btn.disabled = false;
-                        btn.innerHTML = originalText;
-                        alert('Ocorreu um erro. Por favor, tente novamente.');
-                    });
             });
+        }, stepOptions);
+
+        stepReaders.forEach(step => stepObserver.observe(step));
+
+        // Lazy Load GSAP Apenas para animação inicial do Hero (Sombra varrendo de baixo)
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Como não usamos mais 3d hovers, a dependência do GSAP aqui é estritamente p/ o "Reveal" do título ao moludá-lo perfeitamente
+                const { gsap } = await import('https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm');
+
+                // Hero Type Reveal
+                gsap.fromTo('.reveal-text',
+                    { y: "110%", opacity: 0 },
+                    { y: "0%", opacity: 1, duration: 1.2, ease: "power3.out", stagger: 0.15, delay: 0.2 }
+                );
+                gsap.fromTo('.hero__tag', { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.5 });
+                gsap.fromTo('.hero__desc', { opacity: 0 }, { opacity: 1, duration: 1, delay: 1.0 });
+                gsap.fromTo('.hero__cta-wrapper', { opacity: 0 }, { opacity: 1, duration: 1, delay: 1.2 });
+
+                // Mecanismo Único Index Fade in
+                const { ScrollTrigger } = await import('https://cdn.jsdelivr.net/npm/gsap@3.12.2/ScrollTrigger/+esm');
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.from('.index-row', {
+                    scrollTrigger: { trigger: ".mecanismo__index", start: "top 75%" },
+                    y: 20, opacity: 0, stagger: 0.1, duration: 0.8, ease: "power2.out"
+                });
+
+            } catch (e) {
+                console.log("GSAP fallback: elementos já estão visíveis no CSS estático");
+            }
         });
     </script>
 </body>
