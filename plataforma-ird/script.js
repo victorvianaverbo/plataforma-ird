@@ -49,6 +49,9 @@ function initForms() {
   });
 }
 
+const SUPABASE_URL = 'https://woebteyuqzndvchruxhw.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvZWJ0ZXl1cXpuZHZjaHJ1eGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3OTAyMDYsImV4cCI6MjA4NzM2NjIwNn0.N2KgxsYE-NEnM6dz9cjGRKY1WVXoLBW1qpoNTo0oCcs';
+
 async function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -85,10 +88,6 @@ async function handleFormSubmit(e) {
     return;
   }
 
-  // Captura nome e email ANTES do envio (form.reset limpa os campos)
-  const nome = form.querySelector('[name="nome"]')?.value || '';
-  const email = form.querySelector('[name="email"]')?.value || '';
-
   // Telefone internacional - pega instancia do input DESTE form
   const phone = form.querySelector('input[type="tel"]');
   if (phone && phone._iti) {
@@ -101,72 +100,80 @@ async function handleFormSubmit(e) {
   btn.textContent = 'Enviando...';
 
   try {
-    const res = await fetch(form.getAttribute('action') || window.location.pathname, {
+    // 1. Obter dados do formulário
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // 2. Enviar para Supabase
+    const supabaseResponse = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        nome: data.nome,
+        email: data.email,
+        telefone: data.telefone,
+        utm_source: data.utm_source || '',
+        utm_medium: data.utm_medium || '',
+        utm_campaign: data.utm_campaign || '',
+        utm_content: data.utm_content || '',
+        utm_term: data.utm_term || ''
+      })
     });
 
-    if (res.ok) {
-      // Meta Pixel
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
-      }
-
-      // GTM dataLayer
-      if (typeof dataLayer !== 'undefined') {
-        dataLayer.push({ event: 'generate_lead', form_name: form.getAttribute('name') || 'contato', method: 'netlify_form' });
-      }
-
-      // Redirect para Hotmart se for o form de captura
-      if (form.getAttribute('name') === 'capture-leads') {
-        const checkoutUrl = new URL('https://pay.hotmart.com/L85860528K');
-
-        // Repassa todos os parametros da URL atual (utm_source, fbclid, etc)
-        new URLSearchParams(window.location.search).forEach((value, key) => {
-          checkoutUrl.searchParams.set(key, value);
-        });
-
-        // Passa nome e email como parametros (Hotmart aceita 'name' e 'email' ou custom utms)
-        if (nome) {
-          checkoutUrl.searchParams.set('name', nome);
-        }
-        if (email) {
-          checkoutUrl.searchParams.set('email', email);
-        }
-
-        window.location.href = checkoutUrl.toString();
-        return;
-      }
-
-      // Redirect generico com parametros (se tiver action)
-      const action = form.getAttribute('action');
-      if (action) {
-        const redirectUrl = new URL(action, window.location.origin);
-        new URLSearchParams(window.location.search).forEach((value, key) => {
-          redirectUrl.searchParams.set(key, value);
-        });
-        if (nome) redirectUrl.searchParams.set('nome', nome);
-        if (email) redirectUrl.searchParams.set('email', email);
-        window.location.href = redirectUrl.toString();
-        return;
-      }
-
-      // Fallback: mostrar mensagem (quando nao tem action)
-      showFeedback(feedback, 'success', 'Mensagem enviada com sucesso!');
-
-      // Fechar modal apos sucesso (se estiver em um)
-      const modal = form.closest('.modal-overlay');
-      if (modal) {
-        setTimeout(() => closeModal(modal), 2000);
-      }
-
-      form.reset();
-      if (phone && phone._iti) phone._iti.setNumber('');
-    } else {
-      throw new Error('Erro');
+    if (!supabaseResponse.ok) {
+      throw new Error('Falha ao salvar lead no Supabase');
     }
-  } catch {
+
+    // 3. Rastreamento e Conversão
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
+
+    if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({
+        event: 'generate_lead',
+        form_name: form.getAttribute('name') || 'contato',
+        method: 'supabase'
+      });
+    }
+
+    // 4. Fluxo de Redirecionamento
+    if (form.getAttribute('name') === 'form-producao-v2') {
+      const checkoutUrl = new URL('https://pay.hotmart.com/L85860528K');
+
+      // Repassa todos os parametros da URL atual (utm_source, fbclid, etc)
+      new URLSearchParams(window.location.search).forEach((value, key) => {
+        checkoutUrl.searchParams.set(key, value);
+      });
+
+      // Passa nome e email como parametros extras (Hotmart aceita 'name' e 'email')
+      if (data.nome) checkoutUrl.searchParams.set('name', data.nome);
+      if (data.email) checkoutUrl.searchParams.set('email', data.email);
+
+      window.location.href = checkoutUrl.toString();
+      return;
+    }
+
+    // Feedback de sucesso para outros formulários
+    btn.textContent = 'Enviado!';
+    showFeedback(feedback, 'success', 'Mensagem enviada com sucesso!');
+
+    // Fechar modal apos sucesso (se estiver em um)
+    const modal = form.closest('.modal-overlay');
+    if (modal) {
+      setTimeout(() => closeModal(modal), 2000);
+    }
+
+    form.reset();
+    if (phone && phone._iti) phone._iti.setNumber('');
+
+  } catch (error) {
+    console.error('Erro:', error);
     showFeedback(feedback, 'error', 'Erro ao enviar. Tente novamente.');
   } finally {
     btn.disabled = false;
