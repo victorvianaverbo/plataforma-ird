@@ -119,7 +119,7 @@ async function handleFormSubmit(e) {
       }
 
       // Redirect para Hotmart se for o form de captura
-      if (form.getAttribute('name') === 'lead-captura-v1') {
+      if (form.getAttribute('name') === 'form-producao-v2') {
         const checkoutUrl = new URL('https://pay.hotmart.com/L85860528K');
 
         // Repassa todos os parametros da URL atual (utm_source, fbclid, etc)
