@@ -39,16 +39,13 @@
                 display: block !important;
                 white-space: nowrap !important;
                 font-size: 11px !important;
+                /* Reduzido para caber em telas 320px */
                 padding: 10px 5px !important;
                 text-align: center !important;
                 letter-spacing: 0 !important;
             }
         }
     </style>
-
-    <!-- intl-tel-input: Telefone Internacional -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 </head>
 
 <body>
@@ -66,9 +63,9 @@
                 <a href="#bonus">Bônus</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            <button type="button" class="btn btn--outline" data-modal="capture-modal"
+            <a href="https://pay.hotmart.com/L85860528K" class="btn btn--outline"
                 style="width: 100% !important; white-space: nowrap !important; display: block !important; text-align: center !important; padding: 10px 0 !important; font-size: 10px !important; letter-spacing: -0.02em !important;">MAGIS
-                + ENAM ATÉ A APROVAÇÃO</button>
+                + ENAM ATÉ A APROVAÇÃO</a>
         </div>
     </header>
 
@@ -96,8 +93,8 @@
                 </p>
 
                 <div class="hero__cta-wrapper">
-                    <button type="button" class="btn btn--dark btn--large" data-modal="capture-modal">MAGIS + ENAM ATÉ A
-                        APROVAÇÃO</button>
+                    <a href="https://pay.hotmart.com/L85860528K" class="btn btn--dark btn--large">MAGIS + ENAM ATÉ A
+                        APROVAÇÃO</a>
                     <p class="hero__micro">Saia do ciclo eterno de cursinhos e entre em um plano estratégico que conduz
                         até a posse.</p>
                 </div>
@@ -182,8 +179,9 @@
             </div>
 
             <div class="vsl__cta">
-                <button type="button" class="btn btn--gold" data-modal="capture-modal">MAGIS + ENAM ATÉ A
-                    APROVAÇÃO</button>
+                <a href="https://pay.hotmart.com/L85860528K" class="btn btn--gold">
+                    MAGIS + ENAM ATÉ A APROVAÇÃO
+                </a>
             </div>
         </div>
     </section>
@@ -370,9 +368,8 @@
                             </div>
                             <p class="price-vista">Pagamento em cota única: R$ 2.410</p>
 
-                            <button type="button" class="btn btn--wide btn--white" data-modal="capture-modal">MAGIS +
-                                ENAM
-                                ATÉ A APROVAÇÃO</button>
+                            <a href="https://pay.hotmart.com/L85860528K" class="btn btn--wide btn--white">MAGIS + ENAM
+                                ATÉ A APROVAÇÃO</a>
                         </div>
                     </div>
                 </div>
@@ -492,48 +489,7 @@
         </div>
     </footer>
 
-    <!-- ==========================================
-         MODAL DE CAPTURA (Lead Gen)
-         ========================================== -->
-    <div class="modal-overlay" id="capture-modal" role="dialog" aria-modal="true" aria-label="Formulário de inscrição">
-        <div class="modal-content">
-            <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Garantir Vaga no Sistema IRD</h2>
-                <p class="modal-subtitle">Preencha os dados abaixo para prosseguir ao checkout e garantir seu acesso até
-                    a aprovação.</p>
-            </div>
-
-            <form name="lead-captura-v1" netlify netlify-honeypot="bot-field" data-form>
-                <input type="hidden" name="form-name" value="lead-captura-v1">
-                <p hidden><label>Não preencha: <input name="bot-field"></label></p>
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-nome">Nome Completo</label>
-                    <input type="text" id="modal-nome" name="nome" class="form-input" required autocomplete="name"
-                        placeholder="Seu nome">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-email">E-mail Principal</label>
-                    <input type="email" id="modal-email" name="email" class="form-input" required autocomplete="email"
-                        placeholder="seu@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="modal-telefone">WhatsApp</label>
-                    <input type="tel" id="modal-telefone" name="telefone" class="form-input" required
-                        autocomplete="tel">
-                </div>
-
-                <div class="form-feedback"></div>
-                <button type="submit" class="btn btn--dark btn--wide">PROSSEGUIR PARA O CHECKOUT</button>
-            </form>
-        </div>
-    </div>
-
     <!-- SCRIPT GERAL PARA INTERATIVIDADE EDITORIAL E GSAP BÁSICO SE NECESSÁRIO -->
-    <script src="/script.js"></script>
     <script>
         // Header Anim Sutil. No blur, apenas borda.
         const header = document.getElementById('header');

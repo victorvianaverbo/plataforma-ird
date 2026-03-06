@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = ""
+  command = "echo 'Building...'"
 
 [functions]
   directory = "plataforma-ird/netlify/functions"
