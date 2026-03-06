@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+  command = "echo 'Building...'"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "https://trial.institutoird.com/*"
+  to = "/trial-ird/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
