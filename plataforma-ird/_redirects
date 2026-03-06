@@ -1,0 +1,3 @@
+# Redirecionamento para o subdomínio trial
+https://trial.institutoird.com/*  /trial-ird/:splat  200!
+https://carreiras.institutoird.com/*  /:splat  200
