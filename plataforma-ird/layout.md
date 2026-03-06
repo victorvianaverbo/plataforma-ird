@@ -111,7 +111,7 @@ Este documento dita a exata especificação da página de vendas para o nicho de
 - **Constraints:** Fundo Dark, Linha d'água de texto. 
 
 ### Conteúdo
-- Título: O Sistema IRD (Veja a Base)
+- Título: Veja como o Sistema IRD vai transformar sua preparação
 - Botão.
 
 ### Layout
