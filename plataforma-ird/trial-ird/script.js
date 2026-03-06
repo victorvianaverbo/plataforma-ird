@@ -22,7 +22,7 @@ function initModals() {
             const modalId = btn.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
-                modal.style.display = 'flex';
+                modal.classList.add('active'); // Usando a classe 'active' conforme o script raiz
                 document.body.style.overflow = 'hidden';
             }
         });
@@ -43,14 +43,14 @@ function initModals() {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            const activeModal = document.querySelector('.modal-overlay[style*="display: flex"]');
+            const activeModal = document.querySelector('.modal-overlay.active');
             if (activeModal) closeModal(activeModal);
         }
     });
 }
 
 function closeModal(modal) {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
     document.body.style.overflow = '';
 }
 
@@ -136,47 +136,54 @@ function initForms() {
             }
 
             btn.disabled = true;
-            btn.textContent = 'PROCESSANDO...';
+            btn.textContent = 'LIBERANDO ACESSO...';
             feedback.textContent = "";
 
+            // Coleta de dados
             const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
 
-            // Garantir que estamos enviando para o endpoint local do Netlify que registrou o form
-            // Em subdomínios, o local path '/' deve ser o index onde o form foi detectado.
-            // Sendo um proxy, '/' aponta para '/trial-ird/index.html' no Netlify.
+            // Pega o número de telefone formatado
+            if (phoneInput && phoneInput._iti) {
+                data.telefone = phoneInput._iti.getNumber();
+            }
 
             try {
-                const response = await fetch("/", {
+                // Linkamos diretamente para a função Netlify para evitar 404 de form detection
+                const functionsEndpoint = 'https://carreiras.institutoird.com/.netlify/functions/trial-signup';
+
+                const response = await fetch(functionsEndpoint, {
                     method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
                 });
 
-                if (response.ok) {
+                const result = await response.json();
+
+                if (response.ok && result.success) {
                     btn.textContent = 'LIBERADO!';
-                    feedback.textContent = "Acesso concedido. Abrindo plataforma...";
+                    feedback.textContent = "Sucesso! Abrindo plataforma...";
                     feedback.className = "form-feedback success";
 
-                    // Captura e repasse de UTMs + Dados no redirect
-                    const redirectUrl = "https://app.institutoird.com.br/trial";
-                    const params = new URLSearchParams(window.location.search);
-
-                    const nome = form.querySelector('[name="nome"]')?.value || "";
-                    const email = form.querySelector('[name="email"]')?.value || "";
-                    if (nome) params.set('nome', nome);
-                    if (email) params.set('email', email);
-
+                    // Redirect para a Plataforma
                     setTimeout(() => {
+                        const redirectUrl = "https://app.institutoird.com.br/trial";
+                        const params = new URLSearchParams(window.location.search);
+
+                        // Passar nome e email no redirect
+                        if (data.nome) params.set('nome', data.nome);
+                        if (data.email) params.set('email', data.email);
+
                         window.location.href = `${redirectUrl}?${params.toString()}`;
-                    }, 800);
+                    }, 1000);
                 } else {
-                    throw new Error("Erro de comunicação com o servidor.");
+                    throw new Error(result.error || "Falha no salvamento");
                 }
             } catch (error) {
-                console.error("Erro no envio:", error);
+                console.error("Erro na captura:", error);
                 btn.disabled = false;
                 btn.textContent = originalText;
-                feedback.textContent = "Ocorreu um erro. Tente novamente ou fale no suporte.";
+                feedback.textContent = "Ocorreu um erro no servidor. Tente novamente.";
                 feedback.className = "form-feedback error";
             }
         });
