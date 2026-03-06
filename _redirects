@@ -1,0 +1,6 @@
+# Regras para os subdomínios da Plataforma IRD
+# trial.institutoird.com -> Carrega a pasta de trial de forma transparente
+https://trial.institutoird.com/*  /plataforma-ird/trial-ird/:splat  200!
+
+# carreiras.institutoird.com -> Carrega a página de vendas principal (root)
+https://carreiras.institutoird.com/*  /:splat  200
