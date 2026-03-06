@@ -17,7 +17,7 @@ exports.handler = async (event) => {
         return { statusCode: 200 }; // Retornamos 200 para não quebrar o fluxo do Netlify
     }
 
-    // Mapeamento de campos (ajuste conforme os nomes nos inputs do formulário)
+    // Mapeamento de campos
     const lead = {
         nome: data.nome || data.name || '',
         email: data.email || '',
@@ -34,15 +34,17 @@ exports.handler = async (event) => {
 
     const supabasePayload = JSON.stringify(lead);
 
+    // Determinar a tabela destino
+    const table = formName === 'trial-capture' ? 'leads_trial' : 'leads';
+
     try {
         await new Promise((resolve, reject) => {
-            // Remove trailing slash de URL se existir
             const baseUrl = SUPABASE_URL.replace(/\/$/, '');
             const hostname = baseUrl.replace('https://', '');
 
             const options = {
                 hostname: hostname,
-                path: '/rest/v1/leads',
+                path: `/rest/v1/${table}`,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

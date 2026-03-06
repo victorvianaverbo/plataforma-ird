@@ -303,7 +303,18 @@
             <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
             <h2 class="modal-title">Iniciar Trial de 3 Dias</h2>
             <p class="modal-subtitle">Preencha os dados para liberar seu acesso instantâneo.</p>
-            <form name="trial-capture" data-form>
+            <form name="trial-capture" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form>
+                <input type="hidden" name="form-name" value="trial-capture">
+                <!-- Honeypot anti-spam -->
+                <p hidden><label>Não preencha: <input name="bot-field"></label></p>
+
+                <!-- Campos ocultos para UTMs -->
+                <input type="hidden" name="utm_source" id="trial-utm-source">
+                <input type="hidden" name="utm_medium" id="trial-utm-medium">
+                <input type="hidden" name="utm_campaign" id="trial-utm-campaign">
+                <input type="hidden" name="utm_content" id="trial-utm-content">
+                <input type="hidden" name="utm_term" id="trial-utm-term">
+
                 <div class="form-group">
                     <label class="form-label" for="trial-nome">Nome Completo</label>
                     <input type="text" id="trial-nome" name="nome" class="form-input" required placeholder="Seu nome">
@@ -317,6 +328,7 @@
                     <label class="form-label" for="trial-telefone">WhatsApp</label>
                     <input type="tel" id="trial-telefone" name="telefone" class="form-input" required>
                 </div>
+                <div class="form-feedback"></div>
                 <button type="submit" class="btn btn--blue btn--wide">LIBERAR MEU ACESSO</button>
             </form>
         </div>

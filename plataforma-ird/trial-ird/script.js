@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPhoneInput();
     initFAQ();
     initForms();
+    captureUTMs();
 });
 
 /* ==========================================
@@ -85,13 +86,30 @@ function initPhoneInput() {
     if (typeof intlTelInput === 'undefined') return;
 
     document.querySelectorAll('input[type="tel"]').forEach(input => {
-        intlTelInput(input, {
+        input._iti = intlTelInput(input, {
             initialCountry: 'br',
             preferredCountries: ['br', 'us', 'pt'],
             separateDialCode: true,
             strictMode: true,
             loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js'
         });
+    });
+}
+
+/* ==========================================
+   UTMs
+   ========================================== */
+
+function captureUTMs() {
+    const params = new URLSearchParams(window.location.search);
+    const utms = ['source', 'medium', 'campaign', 'content', 'term'];
+
+    utms.forEach(utm => {
+        const value = params.get(`utm_${utm}`);
+        if (value) {
+            const inputs = document.querySelectorAll(`[name="utm_${utm}"]`);
+            inputs.forEach(input => input.value = value);
+        }
     });
 }
 
@@ -104,24 +122,54 @@ function initForms() {
     forms.forEach(form => {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const btn = form.querySelector('button[type="submit"]');
+            const feedback = form.querySelector('.form-feedback');
             const originalText = btn.textContent;
+
+            // Validar Telefone
+            const phoneInput = form.querySelector('input[type="tel"]');
+            if (phoneInput && phoneInput._iti && !phoneInput._iti.isValidNumber()) {
+                feedback.textContent = "Por favor, insira um WhatsApp válido.";
+                feedback.className = "form-feedback error";
+                return;
+            }
 
             btn.disabled = true;
             btn.textContent = 'ENVIANDO...';
+            feedback.textContent = "";
 
-            // Simulação de envio Netlify e Redirect para Hotmart (Trial)
+            const formData = new FormData(form);
+
             try {
-                // Aqui entraria a lógica real de fetch do Netlify
-                setTimeout(() => {
-                    // Após 1.5s redireciona para o checkout do trial ou página de sucesso
-                    // Para o trial, o usuário deve ir para o onboarding ou área restrita
-                    window.location.href = "https://pay.hotmart.com/L85860528K?checkoutMode=10&bid=1709734200000";
-                }, 1500);
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                });
+
+                if (response.ok) {
+                    btn.textContent = 'SUCESSO!';
+                    feedback.textContent = "Redirecionando...";
+                    feedback.className = "form-feedback success";
+
+                    // Redirecionamento Final
+                    setTimeout(() => {
+                        const redirectUrl = "https://app.institutoird.com.br/trial";
+                        const params = new URLSearchParams(window.location.search);
+                        params.set('nome', form.querySelector('[name="nome"]').value);
+                        params.set('email', form.querySelector('[name="email"]').value);
+                        window.location.href = `${redirectUrl}?${params.toString()}`;
+                    }, 1000);
+                } else {
+                    throw new Error("Falha no envio");
+                }
             } catch (error) {
                 console.error("Erro ao enviar:", error);
                 btn.disabled = false;
                 btn.textContent = originalText;
+                feedback.textContent = "Erro ao enviar. Tente novamente.";
+                feedback.className = "form-feedback error";
             }
         });
     });
