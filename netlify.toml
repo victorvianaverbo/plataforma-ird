@@ -6,6 +6,11 @@
   directory = "plataforma-ird/netlify/functions"
 
 [[redirects]]
+  from = "/test-redirect"
+  to = "/trial-ird/index.html"
+  status = 200
+
+[[redirects]]
   from = "https://trial.institutoird.com/*"
   to = "/trial-ird/:splat"
   status = 200
