@@ -149,8 +149,8 @@ function initForms() {
             }
 
             try {
-                // Linkamos diretamente para a função Netlify para evitar 404 de form detection
-                const functionsEndpoint = 'https://carreiras.institutoird.com/.netlify/functions/trial-signup';
+                // Usamos o endpoint relativo para evitar problemas de CORS entre subdomínios
+                const functionsEndpoint = '/.netlify/functions/trial-signup';
 
                 const response = await fetch(functionsEndpoint, {
                     method: "POST",
