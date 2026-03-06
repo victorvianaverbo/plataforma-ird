@@ -120,57 +120,26 @@ function captureUTMs() {
 function initForms() {
     const forms = document.querySelectorAll('form[data-form]');
     forms.forEach(form => {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        form.addEventListener('submit', function (e) {
+            // Se o formulário tiver action externo, o Netlify interceptará se enviarmos via AJAX
+            // Mas para subdomínios, o submit natural é mais confiável.
 
             const btn = form.querySelector('button[type="submit"]');
             const feedback = form.querySelector('.form-feedback');
-            const originalText = btn.textContent;
 
             // Validar Telefone
             const phoneInput = form.querySelector('input[type="tel"]');
             if (phoneInput && phoneInput._iti && !phoneInput._iti.isValidNumber()) {
+                e.preventDefault();
                 feedback.textContent = "Por favor, insira um WhatsApp válido.";
                 feedback.className = "form-feedback error";
                 return;
             }
 
+            // Se chegamos aqui, deixamos o formulário seguir seu curso natural.
+            // O Netlify captura o POST, dispara a function e redireciona para o action.
             btn.disabled = true;
-            btn.textContent = 'ENVIANDO...';
-            feedback.textContent = "";
-
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
-                });
-
-                if (response.ok) {
-                    btn.textContent = 'SUCESSO!';
-                    feedback.textContent = "Redirecionando...";
-                    feedback.className = "form-feedback success";
-
-                    // Redirecionamento Final
-                    setTimeout(() => {
-                        const redirectUrl = "https://app.institutoird.com.br/trial";
-                        const params = new URLSearchParams(window.location.search);
-                        params.set('nome', form.querySelector('[name="nome"]').value);
-                        params.set('email', form.querySelector('[name="email"]').value);
-                        window.location.href = `${redirectUrl}?${params.toString()}`;
-                    }, 1000);
-                } else {
-                    throw new Error("Falha no envio");
-                }
-            } catch (error) {
-                console.error("Erro ao enviar:", error);
-                btn.disabled = false;
-                btn.textContent = originalText;
-                feedback.textContent = "Erro ao enviar. Tente novamente.";
-                feedback.className = "form-feedback error";
-            }
+            btn.textContent = 'REDIRECIONANDO...';
         });
     });
 }
