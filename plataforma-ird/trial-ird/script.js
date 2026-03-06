@@ -176,6 +176,11 @@ function initForms() {
                 });
 
                 if (response.ok) {
+                    // Meta Pixel Lead Event
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+
                     btn.textContent = 'LIBERADO!';
                     feedback.textContent = "Sucesso! Abrindo plataforma...";
                     feedback.className = "form-feedback success";
