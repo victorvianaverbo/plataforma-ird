@@ -5,6 +5,17 @@
 [functions]
   directory = "plataforma-ird/netlify/functions"
 
+[[redirects]]
+  from = "https://trial.institutoird.com/*"
+  to = "/plataforma-ird/trial-ird/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://carreiras.institutoird.com/*"
+  to = "/:splat"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
