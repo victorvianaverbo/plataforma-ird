@@ -149,18 +149,33 @@ function initForms() {
             }
 
             try {
-                // Usamos o endpoint relativo para evitar problemas de CORS entre subdomínios
-                const functionsEndpoint = '/.netlify/functions/trial-signup';
+                // Configurações Supabase (direto via JS como no site principal)
+                const SUPABASE_URL = 'https://woebteyuqzndvchruxhw.supabase.co';
+                const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvZWJ0ZXl1cXpuZHVjaHJ1eGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3OTAyMDYsImV4cCI6MjA4NzM2NjIwNn0.N2KgxsYE-NEnM6dz9cjGRKY1WVXoLBW1qpoNTo0oCcs';
 
-                const response = await fetch(functionsEndpoint, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data),
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/leads_trial`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({
+                        nome: data.nome,
+                        email: data.email,
+                        telefone: data.telefone,
+                        utm_source: data.utm_source || '',
+                        utm_medium: data.utm_medium || '',
+                        utm_campaign: data.utm_campaign || '',
+                        utm_content: data.utm_content || '',
+                        utm_term: data.utm_term || '',
+                        referrer: document.referrer || '',
+                        form_name: 'trial-capture-direct'
+                    })
                 });
 
-                const result = await response.json();
-
-                if (response.ok && result.success) {
+                if (response.ok) {
                     btn.textContent = 'LIBERADO!';
                     feedback.textContent = "Sucesso! Abrindo plataforma...";
                     feedback.className = "form-feedback success";
@@ -177,13 +192,14 @@ function initForms() {
                         window.location.href = `${redirectUrl}?${params.toString()}`;
                     }, 1000);
                 } else {
-                    throw new Error(result.error || "Falha no salvamento");
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.message || "Falha no salvamento");
                 }
             } catch (error) {
                 console.error("Erro na captura:", error);
                 btn.disabled = false;
                 btn.textContent = originalText;
-                feedback.textContent = "Ocorreu um erro no servidor. Tente novamente.";
+                feedback.textContent = "Ocorreu um erro ao salvar os dados. Tente novamente.";
                 feedback.className = "form-feedback error";
             }
         });
