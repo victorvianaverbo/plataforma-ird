@@ -120,26 +120,65 @@ function captureUTMs() {
 function initForms() {
     const forms = document.querySelectorAll('form[data-form]');
     forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
-            // Se o formulário tiver action externo, o Netlify interceptará se enviarmos via AJAX
-            // Mas para subdomínios, o submit natural é mais confiável.
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
             const btn = form.querySelector('button[type="submit"]');
             const feedback = form.querySelector('.form-feedback');
+            const originalText = btn.textContent;
 
             // Validar Telefone
             const phoneInput = form.querySelector('input[type="tel"]');
             if (phoneInput && phoneInput._iti && !phoneInput._iti.isValidNumber()) {
-                e.preventDefault();
                 feedback.textContent = "Por favor, insira um WhatsApp válido.";
                 feedback.className = "form-feedback error";
                 return;
             }
 
-            // Se chegamos aqui, deixamos o formulário seguir seu curso natural.
-            // O Netlify captura o POST, dispara a function e redireciona para o action.
             btn.disabled = true;
-            btn.textContent = 'REDIRECIONANDO...';
+            btn.textContent = 'PROCESSANDO...';
+            feedback.textContent = "";
+
+            const formData = new FormData(form);
+
+            // Garantir que estamos enviando para o endpoint local do Netlify que registrou o form
+            // Em subdomínios, o local path '/' deve ser o index onde o form foi detectado.
+            // Sendo um proxy, '/' aponta para '/trial-ird/index.html' no Netlify.
+
+            try {
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                });
+
+                if (response.ok) {
+                    btn.textContent = 'LIBERADO!';
+                    feedback.textContent = "Acesso concedido. Abrindo plataforma...";
+                    feedback.className = "form-feedback success";
+
+                    // Captura e repasse de UTMs + Dados no redirect
+                    const redirectUrl = "https://app.institutoird.com.br/trial";
+                    const params = new URLSearchParams(window.location.search);
+
+                    const nome = form.querySelector('[name="nome"]')?.value || "";
+                    const email = form.querySelector('[name="email"]')?.value || "";
+                    if (nome) params.set('nome', nome);
+                    if (email) params.set('email', email);
+
+                    setTimeout(() => {
+                        window.location.href = `${redirectUrl}?${params.toString()}`;
+                    }, 800);
+                } else {
+                    throw new Error("Erro de comunicação com o servidor.");
+                }
+            } catch (error) {
+                console.error("Erro no envio:", error);
+                btn.disabled = false;
+                btn.textContent = originalText;
+                feedback.textContent = "Ocorreu um erro. Tente novamente ou fale no suporte.";
+                feedback.className = "form-feedback error";
+            }
         });
     });
 }
