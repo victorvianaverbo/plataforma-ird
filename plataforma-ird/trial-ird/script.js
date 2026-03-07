@@ -3,11 +3,11 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    captureUTMs();
     initModals();
     initPhoneInput();
     initFAQ();
     initForms();
-    captureUTMs();
 });
 
 /* ==========================================

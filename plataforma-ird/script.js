@@ -3,6 +3,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  captureUTMs();
   initAOS();
   initModals();
   initForms();
@@ -305,5 +306,4 @@ function captureUTMs() {
   console.log('UTM Capture complete from URL/Session');
 }
 
-// Chamar captura de UTMs
-document.addEventListener('DOMContentLoaded', captureUTMs);
+// Removido listener duplicado
