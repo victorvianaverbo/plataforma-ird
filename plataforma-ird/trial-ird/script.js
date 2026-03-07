@@ -108,12 +108,13 @@ function captureUTMs() {
     utms.forEach(utm => {
         let value = params.get(`utm_${utm}`);
 
-        // Se tem na URL, salva no session
+        // Se tem na URL, salva no session e local storage
         if (value) {
             sessionStorage.setItem(`${sessionPrefix}${utm}`, value);
+            try { localStorage.setItem(`${sessionPrefix}${utm}`, value); } catch (e) { }
         } else {
-            // Se não tem na URL, tenta pegar do session
-            value = sessionStorage.getItem(`${sessionPrefix}${utm}`);
+            // Se não tem na URL, tenta pegar do session ou local storage
+            value = sessionStorage.getItem(`${sessionPrefix}${utm}`) || localStorage.getItem(`${sessionPrefix}${utm}`);
         }
 
         if (value) {
@@ -154,9 +155,20 @@ function initForms() {
             btn.textContent = 'LIBERANDO ACESSO...';
             feedback.textContent = "";
 
-            // Coleta de dados
+            // 1. Coleta de dados
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
+
+            // 2. INJEÇÃO FORÇADA DE UTMS (Fail-safe)
+            const utms = ['source', 'medium', 'campaign', 'content', 'term'];
+            const sessionPrefix = 'ird_utm_';
+
+            utms.forEach(utm => {
+                // Se o campo estiver vazio no FormData, tenta pegar do session ou local storage
+                if (!data[`utm_${utm}`]) {
+                    data[`utm_${utm}`] = sessionStorage.getItem(`${sessionPrefix}${utm}`) || localStorage.getItem(`${sessionPrefix}${utm}`) || '';
+                }
+            });
 
             // Pega o número de telefone formatado
             if (phoneInput && phoneInput._iti) {

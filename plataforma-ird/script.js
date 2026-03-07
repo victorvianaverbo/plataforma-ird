@@ -105,7 +105,20 @@ async function handleFormSubmit(e) {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    // 2. Enviar para Supabase
+    // 2. INJEÇÃO FORÇADA DE UTMS (Fail-safe)
+    const utms = ['source', 'medium', 'campaign', 'content', 'term'];
+    const sessionPrefix = 'ird_utm_';
+
+    utms.forEach(utm => {
+      // Se o campo estiver vazio no FormData, tenta pegar do session ou local storage
+      if (!data[`utm_${utm}`]) {
+        data[`utm_${utm}`] = sessionStorage.getItem(`${sessionPrefix}${utm}`) || localStorage.getItem(`${sessionPrefix}${utm}`) || '';
+      }
+    });
+
+    console.log('Dados finais para Supabase:', { ...data, email: '***' });
+
+    // 3. Enviar para Supabase
     const supabaseResponse = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
       method: 'POST',
       headers: {
@@ -147,9 +160,16 @@ async function handleFormSubmit(e) {
     if (form.getAttribute('name') === 'form-producao-v2') {
       const checkoutUrl = new URL('https://pay.hotmart.com/L85860528K');
 
-      // Repassa todos os parametros da URL atual (utm_source, fbclid, etc)
       new URLSearchParams(window.location.search).forEach((value, key) => {
         checkoutUrl.searchParams.set(key, value);
+      });
+
+      // Adiciona UTMs salvas se não estiverem na URL
+      utms.forEach(utm => {
+        if (!checkoutUrl.searchParams.get(`utm_${utm}`)) {
+          const val = sessionStorage.getItem(`${sessionPrefix}${utm}`) || localStorage.getItem(`${sessionPrefix}${utm}`);
+          if (val) checkoutUrl.searchParams.set(`utm_${utm}`, val);
+        }
       });
 
       // Passa nome e email como parametros extras (Hotmart aceita 'name' e 'email')
@@ -278,12 +298,13 @@ function captureUTMs() {
   utms.forEach(utm => {
     let value = params.get(`utm_${utm}`);
 
-    // Se tem na URL, salva no session
+    // Se tem na URL, salva no session e local storage
     if (value) {
       sessionStorage.setItem(`${sessionPrefix}${utm}`, value);
+      try { localStorage.setItem(`${sessionPrefix}${utm}`, value); } catch (e) { }
     } else {
-      // Se não tem na URL, tenta pegar do session
-      value = sessionStorage.getItem(`${sessionPrefix}${utm}`);
+      // Se não tem na URL, tenta pegar do session ou local storage
+      value = sessionStorage.getItem(`${sessionPrefix}${utm}`) || localStorage.getItem(`${sessionPrefix}${utm}`);
     }
 
     if (value) {
@@ -303,7 +324,7 @@ function captureUTMs() {
     }
   });
 
-  console.log('UTM Capture complete from URL/Session');
+  console.log('UTM Capture complete (URL/Session/Local)');
 }
 
 // Removido listener duplicado
