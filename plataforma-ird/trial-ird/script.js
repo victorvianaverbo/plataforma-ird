@@ -103,12 +103,27 @@ function initPhoneInput() {
 function captureUTMs() {
     const params = new URLSearchParams(window.location.search);
     const utms = ['source', 'medium', 'campaign', 'content', 'term'];
+    const sessionPrefix = 'ird_utm_';
 
     utms.forEach(utm => {
-        const value = params.get(`utm_${utm}`);
+        let value = params.get(`utm_${utm}`);
+
+        // Se tem na URL, salva no session
         if (value) {
-            const inputs = document.querySelectorAll(`[name="utm_${utm}"]`);
-            inputs.forEach(input => input.value = value);
+            sessionStorage.setItem(`${sessionPrefix}${utm}`, value);
+        } else {
+            // Se não tem na URL, tenta pegar do session
+            value = sessionStorage.getItem(`${sessionPrefix}${utm}`);
+        }
+
+        if (value) {
+            // No trial-ird os IDs seguem o padrão 'trial-utm-source' etc
+            const input = document.getElementById(`trial-utm-${utm}`);
+            if (input) input.value = value;
+
+            // Suporte também para inputs por name
+            const inputsByName = document.querySelectorAll(`[name="utm_${utm}"]`);
+            inputsByName.forEach(inp => inp.value = value);
         }
     });
 }

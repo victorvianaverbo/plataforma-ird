@@ -260,3 +260,46 @@ function initYear() {
   const el = document.getElementById('year');
   if (el) el.textContent = new Date().getFullYear();
 }
+
+/* ==========================================
+   UTMs
+   ========================================== */
+
+function captureUTMs() {
+  const params = new URLSearchParams(window.location.search);
+  const utms = ['source', 'medium', 'campaign', 'content', 'term'];
+  const sessionPrefix = 'ird_utm_';
+
+  utms.forEach(utm => {
+    let value = params.get(`utm_${utm}`);
+
+    // Se tem na URL, salva no session
+    if (value) {
+      sessionStorage.setItem(`${sessionPrefix}${utm}`, value);
+    } else {
+      // Se não tem na URL, tenta pegar do session
+      value = sessionStorage.getItem(`${sessionPrefix}${utm}`);
+    }
+
+    if (value) {
+      // Procura por name ou ID ou classes específicas que o tema pode usar
+      const selectors = [
+        `[name="utm_${utm}"]`,
+        `[id="utm_${utm}"]`,
+        `[id="trial-utm-${utm}"]`
+      ];
+
+      selectors.forEach(selector => {
+        const inputs = document.querySelectorAll(selector);
+        inputs.forEach(input => {
+          input.value = value;
+        });
+      });
+    }
+  });
+
+  console.log('UTM Capture complete from URL/Session');
+}
+
+// Chamar captura de UTMs
+document.addEventListener('DOMContentLoaded', captureUTMs);
