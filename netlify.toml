@@ -16,6 +16,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "https://enam.institutoird.com/*"
+  to = "/reta-final-enam/:splat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
