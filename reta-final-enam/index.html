@@ -33,14 +33,17 @@
             src="https://www.facebook.com/tr?id=1026349941870089&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Google Fonts: Playfair Display + Inter -->
+    <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- Google Fonts: Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-    <!-- intl-tel-input -->
+    <!-- intl-tel-input (CSS only in head, JS deferred at bottom) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -362,6 +365,9 @@
             </form>
         </div>
     </div>
+
+    <!-- intl-tel-input JS (non-blocking, at bottom) -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 
     <!-- ==========================================
          SCRIPTS
